@@ -1,6 +1,10 @@
+import data.Repository;
+import gui.Interface;
+
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        new Repository();
+        new Interface();
     }
 }
