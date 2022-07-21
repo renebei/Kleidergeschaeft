@@ -2,7 +2,10 @@ package data;
 
 import entity.Clothing;
 import entity.ClothingDAO;
+import entity.ClothingType;
+import entity.Size;
 
+import java.util.List;
 import java.util.Map;
 
 public class Repository {
@@ -13,17 +16,13 @@ public class Repository {
         this.clothingDAO = new ClothingDAO(Testdata.generate());
     }
 
-    //Search, Order, Add... Polymorphie im DAO
-
-    public boolean search() {
-        return false;
+    public List<Clothing> search(ClothingType type, Size size) {
+        if (size == null)
+            return clothingDAO.search(type);
+        return clothingDAO.search(type, size);
     }
 
-    public boolean order() {
-        return false;
-    }
-
-    public boolean  add() {
-        return false;
+    public boolean sell(Clothing c) {
+        return clothingDAO.sell(c);
     }
 }

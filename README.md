@@ -7,6 +7,10 @@
 - Klassendiagram 
 - Sequenzdiagram(Bestellen, Stornieren..)
 
+## EXTRAS
+- Multithreading
+- Datenbank (SQLite etc.)
+
 
 
     

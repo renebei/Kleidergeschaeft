@@ -11,7 +11,7 @@ public class Interface extends JFrame implements ActionListener {
 
     private JTextField res;
     private JPanel panel;
-    private JButton add, order, search;
+    private JButton add, remove, search, checkout;
     private Repository repo;
 
     public Interface() {
@@ -23,7 +23,7 @@ public class Interface extends JFrame implements ActionListener {
         add(panel, BorderLayout.CENTER);
         add(res, BorderLayout.NORTH);
         setVisible(true);
-        setSize(750, 500);
+        setSize(1000, 1000);
         res.setFont(new Font("Arial", Font.PLAIN, 40));
 
         repo = new Repository();
@@ -37,26 +37,33 @@ public class Interface extends JFrame implements ActionListener {
         this.add.setFont(new Font("Arial", Font.PLAIN, 40));
         this.panel.add(add);
 
-        this.order = new JButton("order");
-        this.order.addActionListener(this);
-        this.order.setFont(new Font("Arial", Font.PLAIN, 40));
-        this.panel.add(order);
+        this.remove = new JButton("remove");
+        this.remove.addActionListener(this);
+        this.remove.setFont(new Font("Arial", Font.PLAIN, 40));
+        this.panel.add(remove);
 
         this.search = new JButton("search");
         this.search.addActionListener(this);
         this.search.setFont(new Font("Arial", Font.PLAIN, 40));
         this.panel.add(search);
+
+        this.checkout = new JButton("checkout");
+        this.checkout.addActionListener(this);
+        this.checkout.setFont(new Font("Arial", Font.PLAIN, 40));
+        this.panel.add(checkout);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton source = (JButton) e.getSource();
         if (source == add) {
-            res.setText("add");
+            res.setText("add to cart");
         } else if(source == search) {
-            res.setText("search");
-        } else if(source == order) {
-            res.setText("order");
+            res.setText("search for clothings");
+        } else if(source == remove) {
+            res.setText("remove from cart");
+        } else if(source == checkout) {
+            res.setText("checkout");
         }
     }
 }

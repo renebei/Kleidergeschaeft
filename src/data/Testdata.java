@@ -30,4 +30,7 @@ public class Testdata {
         return database;
     }
 
+    public List<Clothing> getData() {
+        return data;
+    }
 }
