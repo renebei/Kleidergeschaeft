@@ -1,27 +1,33 @@
 package data;
 
 import entity.Clothing;
+import entity.ClothingDAO;
 import entity.ClothingType;
 import entity.Size;
 import gui.Interface;
 
 import java.awt.*;
-import java.util.HashMap;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
-import java.util.Random;
 
 public class Testdata {
 
-    public static Map<Integer, Clothing> generate() {
-        Map<Integer, Clothing> temp = new HashMap<>();
+    private static List<Clothing> data;
+    private static Testdata database;
+
+    public static Testdata generate() {
+        database = new Testdata();
+        data = new ArrayList<>();
+        Color[] colors = {Color.BLACK, Color.BLUE, Color.CYAN, Color.GREEN, Color.MAGENTA, Color.ORANGE};
         Random rand = new Random();
-        Color[] color = {Color.BLACK, Color.BLUE, Color.CYAN, Color.GREEN, Color.MAGENTA, Color.ORANGE};
+        for (int i = 0; i < 15; i++) {
+            Size size = Size.values()[rand.nextInt(5)];
+            ClothingType type = ClothingType.values()[rand.nextInt(3)];
+            Color color = colors[rand.nextInt(colors.length)];
 
-        for (int i = 0; i < 50; i++) {
-            temp.put(rand.nextInt(10), new Clothing(Size.values()[rand.nextInt(5)], ClothingType.values()[rand.nextInt(3)], color[rand.nextInt(color.length)]));
+            database.data.add(new Clothing(size, type, color, rand.nextInt(4)));
         }
-
-        return temp;
+        return database;
     }
+
 }

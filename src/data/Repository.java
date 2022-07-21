@@ -1,15 +1,19 @@
 package data;
 
 import entity.Clothing;
+import entity.ClothingDAO;
 
 import java.util.Map;
 
 public class Repository {
-    private Map<Integer, Clothing> storage;
+
+    private ClothingDAO clothingDAO;
 
     public Repository() {
-        storage = Testdata.generate();
+        this.clothingDAO = new ClothingDAO(Testdata.generate());
     }
+
+    //Search, Order, Add... Polymorphie im DAO
 
     public boolean search() {
         return false;
