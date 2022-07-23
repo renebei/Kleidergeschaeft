@@ -1,5 +1,8 @@
 package entity;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +16,7 @@ public class ShoppingCart {
     public void addToCart(Clothing c) {
         cart.add(c);
     }
+
     public void removeFromCart(Clothing c) {
         cart.remove(c);
     }

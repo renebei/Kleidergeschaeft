@@ -1,10 +1,8 @@
 package data;
 
 import entity.Clothing;
-import entity.ClothingDAO;
 import entity.ClothingType;
 import entity.Size;
-import gui.Interface;
 
 import java.awt.*;
 import java.util.*;

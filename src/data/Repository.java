@@ -16,10 +16,10 @@ public class Repository {
         this.clothingDAO = new ClothingDAO(Testdata.generate());
     }
 
-    public List<Clothing> search(ClothingType type, Size size) {
-        if (size == null)
+    public List<Clothing> search(ClothingType type, int cost) {
+        if (cost == 0)
             return clothingDAO.search(type);
-        return clothingDAO.search(type, size);
+        return clothingDAO.search(type, cost);
     }
 
     public boolean sell(Clothing c) {

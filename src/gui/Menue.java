@@ -7,14 +7,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Interface extends JFrame implements ActionListener {
+public class Menue extends JFrame implements ActionListener {
 
     private JTextField res;
     private JPanel panel;
     private JButton add, remove, search, checkout;
     private Repository repo;
 
-    public Interface() {
+    public Menue() {
         super("Kleidergeschaeft");
         this.res = new JTextField(10);
         panel = new JPanel();

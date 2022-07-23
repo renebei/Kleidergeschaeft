@@ -1,6 +1,7 @@
 package entity;
 
 import java.awt.*;
+import java.util.Random;
 
 public class Clothing {
 
@@ -8,12 +9,14 @@ public class Clothing {
     private ClothingType type;
     private Color color;
     private int quantity;
+    private int cost;
 
     public Clothing(Size size, ClothingType type, Color color, int quantity) {
         this.size = size;
         this.type = type;
         this.color = color;
         this.quantity = quantity;
+        this.cost = new Random().nextInt(100);
     }
 
     public Size getSize() {
@@ -46,5 +49,9 @@ public class Clothing {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public int getCost() {
+        return cost;
     }
 }

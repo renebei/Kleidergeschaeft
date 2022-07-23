@@ -16,7 +16,7 @@ public class ClothingDAO {
     public boolean sell(Clothing clothing) {
         for (Clothing c : testdata.getData()) {
             if (clothing.equals(c)) {
-                c.setQuantity(c.getQuantity()-1);
+                c.setQuantity(c.getQuantity() - 1);
                 return true;
             }
         }
@@ -31,10 +31,10 @@ public class ClothingDAO {
         return temp;
     }
 
-    public List<Clothing> search(ClothingType type, Size size) {
+    public List<Clothing> search(ClothingType type, int cost) {
         List<Clothing> temp = new ArrayList<>();
         for (Clothing c : testdata.getData()) {
-            if (c.getType().equals(type) && c.getSize().equals(size)) temp.add(c);
+            if (c.getType().equals(type) && c.getCost() <= cost) temp.add(c);
         }
         return temp;
     }
