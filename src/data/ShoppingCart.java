@@ -1,4 +1,6 @@
-package entity;
+package data;
+
+import entity.Clothing;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,9 +1,6 @@
 package data;
 
-import entity.Clothing;
-import entity.ClothingDAO;
-import entity.ClothingType;
-import entity.Size;
+import entity.*;
 
 import java.util.List;
 import java.util.Map;
@@ -25,4 +22,6 @@ public class Repository {
     public boolean sell(Clothing c) {
         return clothingDAO.sell(c);
     }
+
+
 }
