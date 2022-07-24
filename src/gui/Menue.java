@@ -1,6 +1,7 @@
 package gui;
 
 import data.Repository;
+import data.ShoppingCart;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,21 +14,21 @@ public class Menue extends JFrame implements ActionListener {
     private JPanel panel;
     private JButton search, checkout;
 
-    public Repository getRepo() {
-        return repo;
-    }
-
+    private ShoppingCart shoppingCart;
     private Repository repo;
 
     public Menue() {
         super("Store");
         init();
         repo = new Repository();
+        shoppingCart = new ShoppingCart();
     }
+
     public Menue(Menue m) {
         super("Store");
         init();
         repo = m.repo;
+        shoppingCart = m.shoppingCart;
     }
 
     private void init() {
@@ -65,4 +66,13 @@ public class Menue extends JFrame implements ActionListener {
             res.setText("checkout");
         }
     }
+
+    public Repository getRepo() {
+        return repo;
+    }
+
+    public ShoppingCart getShoppingCart() {
+        return shoppingCart;
+    }
+
 }

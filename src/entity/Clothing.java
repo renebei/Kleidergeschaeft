@@ -54,4 +54,29 @@ public class Clothing {
     public int getCost() {
         return cost;
     }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(type.toString() + ", ");
+        sb.append(size.toString() + ", ");
+        sb.append(getColorname() + ", ");
+        sb.append(cost + "€");
+        return sb.toString();
+    }
+
+    private String getColorname() {
+        if (color.equals(Color.BLACK))
+            return "Black";
+        else if (color.equals(Color.BLUE))
+            return "Blue";
+        else if (color.equals(Color.GREEN))
+            return "Green";
+        else if (color.equals(Color.CYAN))
+            return "Cyan";
+        else if (color.equals(Color.MAGENTA))
+            return "Magenta";
+        else if (color.equals(Color.ORANGE))
+            return "Orange";
+        return "";
+    }
 }

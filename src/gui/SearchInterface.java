@@ -52,11 +52,12 @@ public class SearchInterface extends JFrame implements ActionListener {
             dispose();
         } else if (source == enter) {
             try {
-               int maxPrice = Integer.parseInt(res.getText());
-                parent.getRepo().search(cType, maxPrice);
+                int maxPrice = Integer.parseInt(res.getText());
+                new SearchResults(parent.getRepo().search(cType, maxPrice), parent);
+                dispose();
             } catch (Exception exc) {
-                if(cType != null) {
-                    new SearchResults(parent.getRepo().search(cType, 0));
+                if (cType != null) {
+                    new SearchResults(parent.getRepo().search(cType, 0), parent);
                     dispose();
                 }
             }
@@ -74,7 +75,7 @@ public class SearchInterface extends JFrame implements ActionListener {
         this.jeans.setFont(new Font("Arial", Font.PLAIN, 40));
         this.panel.add(jeans);
 
-        this.hoodie = new JButton("hoodie");
+        this.hoodie = new JButton("Hoodie");
         this.hoodie.addActionListener(this);
         this.hoodie.setFont(new Font("Arial", Font.PLAIN, 40));
         this.panel.add(hoodie);

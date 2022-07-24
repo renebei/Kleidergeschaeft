@@ -20,7 +20,7 @@ public class Testdata {
         Random rand = new Random();
         for (int i = 0; i < 15; i++) {
             Size size = Size.values()[rand.nextInt(5)];
-            ClothingType type = ClothingType.values()[rand.nextInt(3)];
+            ClothingType type = ClothingType.values()[rand.nextInt(4)];
             Color color = colors[rand.nextInt(colors.length)];
 
             database.data.add(new Clothing(size, type, color, rand.nextInt(4)));

@@ -13,40 +13,52 @@ import java.util.List;
 public class SearchResults extends JFrame implements ActionListener {
 
     private JPanel panel;
-    private List<JButton> buttons;
+    private Menue parent;
+    private List<Clothing> results;
 
-    public SearchResults(List<Clothing> results) {
+    private JButton back;
+
+    public SearchResults(List<Clothing> results, Menue parent) {
         super("List");
         panel = new JPanel();
         setLayout(new BorderLayout());
-        panel.setLayout(new GridLayout(4, 4));
+        panel.setLayout(new GridLayout(10, 10));
         add(panel, BorderLayout.CENTER);
         setVisible(true);
         setSize(1000, 1000);
+        this.parent = parent;
+        this.results = results;
 
         initButtons(results);
-        listButtons();
-
     }
 
     private void initButtons(List<Clothing> results) {
-        buttons = new ArrayList<>();
+        back = new JButton("Back to Search");
+        back.addActionListener(this);
+        back.setFont(new Font("Arial", Font.PLAIN, 20));
+        panel.add(back);
+
+        int i = 0;
         for (Clothing c : results) {
             JButton tmp = new JButton(c.toString());
+            tmp.setName(String.valueOf(i));
             tmp.addActionListener(this);
             tmp.setFont(new Font("Arial", Font.PLAIN, 20));
-            buttons.add(tmp);
+            panel.add(tmp);
+            i++;
         }
-    }
-
-    private void listButtons() {
-        //print buttons to screen
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        JButton source = (JButton) e.getSource();
+        if (source == back) {
+            new SearchInterface(parent);
+            dispose();
+        } else {
+            int id = Integer.parseInt(source.getName());
+            source.setBackground(Color.GREEN);
+            parent.getShoppingCart().addToCart(results.get(id));
+        }
     }
-
-
 }
