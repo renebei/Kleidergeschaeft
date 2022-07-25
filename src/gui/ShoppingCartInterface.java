@@ -56,7 +56,8 @@ public class ShoppingCartInterface extends JFrame implements ActionListener {
                 int id = jList.getSelectedIndex();
                 System.out.println(id);
                 repo.getCart().remove(id);
-
+                new ShoppingCartInterface();
+                dispose();
 
             }
         });
