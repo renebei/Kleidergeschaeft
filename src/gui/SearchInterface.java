@@ -68,22 +68,27 @@ public class SearchInterface extends JFrame implements ActionListener {
     }
 
     private void initButtons() {
-        this.tShirt = new JButton("TShirt");
+        Icon tshirtIcon = new ImageIcon("res/Tshirt.png");
+        Icon jeansIcon = new ImageIcon("res/Jeans.png");
+        Icon hoodieIcon = new ImageIcon("res/hoodie.png");
+        Icon jacketIcon = new ImageIcon("res/Jacket.png");
+
+        this.tShirt = new JButton(tshirtIcon);
         this.tShirt.addActionListener(this);
         this.tShirt.setFont(new Font("Arial", Font.PLAIN, 40));
         this.panel.add(tShirt);
 
-        this.jeans = new JButton("Jeans");
+        this.jeans = new JButton(jeansIcon);
         this.jeans.addActionListener(this);
         this.jeans.setFont(new Font("Arial", Font.PLAIN, 40));
         this.panel.add(jeans);
 
-        this.hoodie = new JButton("Hoodie");
+        this.hoodie = new JButton(hoodieIcon);
         this.hoodie.addActionListener(this);
         this.hoodie.setFont(new Font("Arial", Font.PLAIN, 40));
         this.panel.add(hoodie);
 
-        this.jacket = new JButton("Jacket");
+        this.jacket = new JButton(jacketIcon);
         this.jacket.addActionListener(this);
         this.jacket.setFont(new Font("Arial", Font.PLAIN, 40));
         this.panel.add(jacket);
