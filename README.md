@@ -1,7 +1,7 @@
 # OOAD René Beiermann, Maximilian Krebs
 
 ## TODO
-- Observer Observable für Shopping Cart 
+- Observer Observable für Shopping Cart (wurde gecancled, singelton wins)
 - JFrame a la Picasso
 - JList
 - Shopping Cart Interface

@@ -10,31 +10,30 @@ import java.awt.event.ActionListener;
 
 public class SearchInterface extends JFrame implements ActionListener {
     private ClothingType cType;
-    private JButton enter;
     private JButton tShirt, jeans, jacket, hoodie;
-    private JButton backToParent;
+
 
     private JPanel panel;
     private JTextField res;
+    private Repository repo;
 
-    private Menue parent;
 
-    public SearchInterface(Menue parent) {
+    public SearchInterface() {
         super("Search");
         this.res = new JTextField(10);
         panel = new JPanel();
         setLayout(new BorderLayout());
-        panel.setLayout(new GridLayout(3, 3));
+        panel.setLayout(new GridLayout(2, 2));
         add(panel, BorderLayout.CENTER);
         add(res, BorderLayout.NORTH);
         setVisible(true);
         setSize(1000, 1000);
         res.setFont(new Font("Arial", Font.PLAIN, 40));
         res.setText("Enter Price Range");
+        repo = new Repository();
 
         initButtons();
         clearButtons();
-        this.parent = parent;
     }
 
     @Override
@@ -50,21 +49,16 @@ public class SearchInterface extends JFrame implements ActionListener {
             cType = ClothingType.Jacket;
         } else if (source == hoodie) {
             cType = ClothingType.Hoodie;
-        } else if (source == backToParent) {
-            new Menue(parent);
-            dispose();
-        } else if (source == enter) {
-            try {
-                int maxPrice = Integer.parseInt(res.getText());
-                new SearchResults(parent.getRepo().search(cType, maxPrice), parent);
-            } catch (Exception exc) {
-                if (cType != null) {
-                    new SearchResults(parent.getRepo().search(cType, 0), parent);
-                }
-            }
-            dispose();
         }
-
+        try {
+            int maxPrice = Integer.parseInt(res.getText());
+            new SearchResults(repo.search(cType, maxPrice));
+        } catch (Exception exc) {
+            if (cType != null) {
+                new SearchResults(repo.search(cType, 0));
+            }
+        }
+        dispose();
     }
 
     private void initButtons() {
@@ -92,18 +86,6 @@ public class SearchInterface extends JFrame implements ActionListener {
         this.jacket.addActionListener(this);
         this.jacket.setFont(new Font("Arial", Font.PLAIN, 40));
         this.panel.add(jacket);
-
-        this.enter = new JButton("Enter");
-        this.enter.setBackground(Color.LIGHT_GRAY);
-        this.enter.addActionListener(this);
-        this.enter.setFont(new Font("Arial", Font.PLAIN, 40));
-        this.panel.add(enter);
-
-        this.backToParent = new JButton("Back to Homescreen");
-        this.backToParent.setBackground(Color.LIGHT_GRAY);
-        this.backToParent.addActionListener(this);
-        this.backToParent.setFont(new Font("Arial", Font.PLAIN, 40));
-        this.panel.add(backToParent);
     }
 
     private void clearButtons() {

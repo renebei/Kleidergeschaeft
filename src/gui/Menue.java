@@ -1,7 +1,6 @@
 package gui;
 
 import data.Repository;
-import data.ShoppingCart;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,24 +12,8 @@ public class Menue extends JFrame implements ActionListener {
     private JPanel panel;
     private JButton search, checkout;
 
-    private ShoppingCart shoppingCart;
-    private Repository repo;
-
     public Menue() {
         super("Store");
-        init();
-        repo = new Repository();
-        shoppingCart = new ShoppingCart();
-    }
-
-    public Menue(Menue m) {
-        super("Store");
-        init();
-        repo = m.repo;
-        shoppingCart = m.shoppingCart;
-    }
-
-    private void init() {
         panel = new JPanel();
         setLayout(new BorderLayout());
         panel.setLayout(new GridLayout(4, 4));
@@ -40,6 +23,7 @@ public class Menue extends JFrame implements ActionListener {
 
         initButtons();
     }
+
 
     private void initButtons() {
         this.search = new JButton("Search for Clothes");
@@ -57,20 +41,11 @@ public class Menue extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         JButton source = (JButton) e.getSource();
         if (source == search) {
-            new SearchInterface(this);
+            new SearchInterface();
             dispose();
         } else if (source == checkout) {
-            new ShoppingCartInterface(this);
+            new ShoppingCartInterface();
             dispose();
         }
     }
-
-    public Repository getRepo() {
-        return repo;
-    }
-
-    public ShoppingCart getShoppingCart() {
-        return shoppingCart;
-    }
-
 }

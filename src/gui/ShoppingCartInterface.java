@@ -1,5 +1,6 @@
 package gui;
 
+import data.Repository;
 import entity.Clothing;
 
 import javax.swing.*;
@@ -9,10 +10,11 @@ import java.awt.event.ActionListener;
 
 public class ShoppingCartInterface extends JFrame implements ActionListener {
     private JButton back;
-    private JPanel  panel;
-    private Menue parent;
+    private JPanel panel;
 
-    public ShoppingCartInterface(Menue parent) {
+    private Repository repo;
+
+    public ShoppingCartInterface() {
         super("Shopping Cart");
         panel = new JPanel();
         setLayout(new BorderLayout());
@@ -20,12 +22,12 @@ public class ShoppingCartInterface extends JFrame implements ActionListener {
         add(panel, BorderLayout.CENTER);
         setVisible(true);
         setSize(1000, 1000);
-        this.parent = parent;
+        repo = new Repository();
         init();
     }
 
     private void init() {
-        for (Clothing c : parent.getShoppingCart().getCart()) {
+        for (Clothing c : repo.getCart()) {
             JButton tmp = new JButton(c.toString());
             tmp.addActionListener(this);
             tmp.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -40,8 +42,8 @@ public class ShoppingCartInterface extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == back) {
-            new Menue(parent);
+        if (e.getSource() == back) {
+            new Menue();
             dispose();
         }
     }

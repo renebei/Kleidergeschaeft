@@ -5,11 +5,19 @@ import entity.Clothing;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShoppingCart {
+class ShoppingCart {
     private List<Clothing> cart;
+    private static ShoppingCart shoppingCart;
 
-    public ShoppingCart() {
+    private ShoppingCart() {
         cart = new ArrayList<>();
+    }
+
+    public static ShoppingCart getInstance() {
+        if (shoppingCart == null) {
+            shoppingCart = new ShoppingCart();
+        }
+        return shoppingCart;
     }
 
     public void addToCart(Clothing c) {
@@ -19,7 +27,6 @@ public class ShoppingCart {
     public void removeFromCart(Clothing c) {
         cart.remove(c);
     }
-
     public List<Clothing> getCart() {
         return cart;
     }

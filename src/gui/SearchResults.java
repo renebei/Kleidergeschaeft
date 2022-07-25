@@ -1,5 +1,6 @@
 package gui;
 
+import data.Repository;
 import entity.Clothing;
 
 import javax.swing.*;
@@ -7,7 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+
 import java.util.List;
 
 public class SearchResults extends JFrame implements ActionListener {
@@ -17,8 +18,11 @@ public class SearchResults extends JFrame implements ActionListener {
     private List<Clothing> results;
 
     private JButton back;
+    private JButton backToMenue;
 
-    public SearchResults(List<Clothing> results, Menue parent) {
+    private Repository repo;
+
+    public SearchResults(List<Clothing> results) {
         super("List");
         panel = new JPanel();
         setLayout(new BorderLayout());
@@ -26,8 +30,9 @@ public class SearchResults extends JFrame implements ActionListener {
         add(panel, BorderLayout.CENTER);
         setVisible(true);
         setSize(1000, 1000);
-        this.parent = parent;
         this.results = results;
+
+        repo = new Repository();
 
         initButtons(results);
     }
@@ -47,18 +52,25 @@ public class SearchResults extends JFrame implements ActionListener {
             panel.add(tmp);
             i++;
         }
+        backToMenue = new JButton("Back to Home");
+        backToMenue.addActionListener(this);
+        backToMenue.setFont(new Font("Arial", Font.PLAIN, 20));
+        panel.add(backToMenue);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton source = (JButton) e.getSource();
         if (source == back) {
-            new SearchInterface(parent);
+            new SearchInterface();
+            dispose();
+        } else if (source == backToMenue) {
+            new Menue();
             dispose();
         } else {
             int id = Integer.parseInt(source.getName());
             source.setBackground(Color.GREEN);
-            parent.getShoppingCart().addToCart(results.get(id));
+            repo.addToCart(results.get(id));
             source.setEnabled(false);
         }
     }

@@ -1,20 +1,18 @@
 package entity;
 
-import data.Testdata;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class ClothingDAO {
 
-    private Testdata testdata;
+    private List<Clothing> testdata;
 
-    public ClothingDAO(Testdata testdata) {
+    public ClothingDAO(List<Clothing> testdata) {
         this.testdata = testdata;
     }
 
     public boolean sell(Clothing clothing) {
-        for (Clothing c : testdata.getData()) {
+        for (Clothing c : testdata) {
             if (clothing.equals(c)) {
                 c.setQuantity(c.getQuantity() - 1);
                 return true;
@@ -25,7 +23,7 @@ public class ClothingDAO {
 
     public List<Clothing> search(ClothingType type) {
         List<Clothing> temp = new ArrayList<>();
-        for (Clothing c : testdata.getData()) {
+        for (Clothing c : testdata) {
             if (c.getType() == type) temp.add(c);
         }
         return temp;
@@ -33,7 +31,7 @@ public class ClothingDAO {
 
     public List<Clothing> search(ClothingType type, int cost) {
         List<Clothing> temp = new ArrayList<>();
-        for (Clothing c : testdata.getData()) {
+        for (Clothing c : testdata) {
             if (c.getType().equals(type) && c.getCost() <= cost) temp.add(c);
         }
         return temp;
