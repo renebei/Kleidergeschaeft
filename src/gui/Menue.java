@@ -2,10 +2,12 @@ package gui;
 
 import data.Repository;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 public class Menue extends JFrame implements ActionListener {
 
@@ -17,10 +19,9 @@ public class Menue extends JFrame implements ActionListener {
         panel = new JPanel();
         setLayout(new BorderLayout());
         panel.setLayout(new GridLayout(4, 4));
+        setSize(1000, 1000);
         add(panel, BorderLayout.CENTER);
         setVisible(true);
-        setSize(1000, 1000);
-
         initButtons();
     }
 
