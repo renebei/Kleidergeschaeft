@@ -7,6 +7,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+/**
+ * @author René Beiermann
+ */
 
 public class SearchInterface extends JFrame implements ActionListener {
     private ClothingType cType;

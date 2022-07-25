@@ -10,6 +10,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import java.util.List;
+/**
+ * @author René Beiermann
+ */
 
 public class SearchResults extends JFrame implements ActionListener {
 

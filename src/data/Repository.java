@@ -3,7 +3,10 @@ package data;
 import entity.*;
 
 import java.util.List;
-import java.util.Map;
+
+/**
+ * @author René Beiermann
+ */
 
 public class Repository {
 

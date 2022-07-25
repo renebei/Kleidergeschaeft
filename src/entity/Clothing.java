@@ -4,6 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 
+/**
+ * @author René Beiermann
+ */
+
 public class Clothing {
 
     private Size size;

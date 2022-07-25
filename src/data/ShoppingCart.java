@@ -5,6 +5,10 @@ import entity.Clothing;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author René Beiermann
+ */
+
 class ShoppingCart {
     private List<Clothing> cart;
     private static ShoppingCart shoppingCart;

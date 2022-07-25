@@ -8,6 +8,10 @@ import java.awt.*;
 import java.util.*;
 import java.util.List;
 
+/**
+ * @author René Beiermann
+ */
+
 class Testdata {
 
     private static List<Clothing> data;
