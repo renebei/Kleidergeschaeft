@@ -19,4 +19,8 @@ public class ShoppingCart {
     public void removeFromCart(Clothing c) {
         cart.remove(c);
     }
+
+    public List<Clothing> getCart() {
+        return cart;
+    }
 }

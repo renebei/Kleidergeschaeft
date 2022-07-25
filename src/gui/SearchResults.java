@@ -59,6 +59,7 @@ public class SearchResults extends JFrame implements ActionListener {
             int id = Integer.parseInt(source.getName());
             source.setBackground(Color.GREEN);
             parent.getShoppingCart().addToCart(results.get(id));
+            source.setEnabled(false);
         }
     }
 }

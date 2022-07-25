@@ -24,7 +24,7 @@ public class SearchInterface extends JFrame implements ActionListener {
         this.res = new JTextField(10);
         panel = new JPanel();
         setLayout(new BorderLayout());
-        panel.setLayout(new GridLayout(4, 4));
+        panel.setLayout(new GridLayout(3, 3));
         add(panel, BorderLayout.CENTER);
         add(res, BorderLayout.NORTH);
         setVisible(true);
@@ -33,12 +33,15 @@ public class SearchInterface extends JFrame implements ActionListener {
         res.setText("Enter Price Range");
 
         initButtons();
+        clearButtons();
         this.parent = parent;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton source = (JButton) e.getSource();
+        clearButtons();
+        source.setBackground(Color.lightGray);
         if (source == tShirt) {
             cType = ClothingType.TShirt;
         } else if (source == jeans) {
@@ -54,14 +57,14 @@ public class SearchInterface extends JFrame implements ActionListener {
             try {
                 int maxPrice = Integer.parseInt(res.getText());
                 new SearchResults(parent.getRepo().search(cType, maxPrice), parent);
-                dispose();
             } catch (Exception exc) {
                 if (cType != null) {
                     new SearchResults(parent.getRepo().search(cType, 0), parent);
-                    dispose();
                 }
             }
+            dispose();
         }
+
     }
 
     private void initButtons() {
@@ -86,13 +89,22 @@ public class SearchInterface extends JFrame implements ActionListener {
         this.panel.add(jacket);
 
         this.enter = new JButton("Enter");
+        this.enter.setBackground(Color.LIGHT_GRAY);
         this.enter.addActionListener(this);
         this.enter.setFont(new Font("Arial", Font.PLAIN, 40));
         this.panel.add(enter);
 
         this.backToParent = new JButton("Back to Homescreen");
+        this.backToParent.setBackground(Color.LIGHT_GRAY);
         this.backToParent.addActionListener(this);
         this.backToParent.setFont(new Font("Arial", Font.PLAIN, 40));
         this.panel.add(backToParent);
+    }
+
+    private void clearButtons() {
+        hoodie.setBackground(Color.white);
+        tShirt.setBackground(Color.white);
+        jacket.setBackground(Color.white);
+        jeans.setBackground(Color.white);
     }
 }

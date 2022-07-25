@@ -16,7 +16,7 @@ public class Clothing {
         this.type = type;
         this.color = color;
         this.quantity = quantity;
-        this.cost = new Random().nextInt(100);
+        this.cost = new Random().nextInt(100)+15; //Inflation
     }
 
     public Size getSize() {
