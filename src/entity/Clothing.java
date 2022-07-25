@@ -60,7 +60,7 @@ public class Clothing {
         sb.append(type.toString() + ", ");
         sb.append(size.toString() + ", ");
         sb.append(getColorname() + ", ");
-        sb.append(cost + "€");
+        sb.append(cost + " Euro");
         return sb.toString();
     }
 
