@@ -1,7 +1,5 @@
 package gui;
-/**
- * @author René Beiermann
- */
+
 
 import data.Repository;
 import entity.Clothing;
