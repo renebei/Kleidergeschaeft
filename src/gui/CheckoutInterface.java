@@ -29,6 +29,8 @@ public class CheckoutInterface extends JFrame implements ActionListener {
     public void showPurchase() {
         list = new JList(cart.stream().toArray());
         list.setVisibleRowCount(5);
+        JScrollPane scrollPane = new JScrollPane();
+        scrollPane.setViewportView(list);
         list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         add(new JScrollPane(list));
     }
