@@ -23,7 +23,6 @@ class ShoppingCart {
     public void addToCart(Clothing c) {
         cart.add(c);
     }
-
     public void removeFromCart(Clothing c) {
         cart.remove(c);
     }

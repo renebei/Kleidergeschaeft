@@ -45,7 +45,7 @@ public class SearchResults extends JFrame implements ActionListener {
 
         int i = 0;
         for (Clothing c : results) {
-            JButton tmp = new JButton(c.toString());
+            JButton tmp = new JButton(c.toString(), c.getIcon());
             tmp.setName(String.valueOf(i));
             tmp.addActionListener(this);
             tmp.setFont(new Font("Arial", Font.PLAIN, 20));

@@ -1,6 +1,8 @@
 package entity;
 
+import javax.swing.*;
 import java.awt.*;
+import java.lang.reflect.Type;
 import java.util.Random;
 
 public class Clothing {
@@ -10,13 +12,15 @@ public class Clothing {
     private Color color;
     private int quantity;
     private int cost;
+    private Icon icon;
 
     public Clothing(Size size, ClothingType type, Color color, int quantity) {
         this.size = size;
         this.type = type;
         this.color = color;
         this.quantity = quantity;
-        this.cost = new Random().nextInt(100)+15; //Inflation
+        this.cost = new Random().nextInt(100) + 15; //Inflation
+        colorInfos();
     }
 
     public Size getSize() {
@@ -29,6 +33,10 @@ public class Clothing {
 
     public ClothingType getType() {
         return type;
+    }
+
+    public Icon getIcon() {
+        return icon;
     }
 
     public void setType(ClothingType type) {
@@ -57,26 +65,29 @@ public class Clothing {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(type.toString() + ", ");
-        sb.append(size.toString() + ", ");
-        sb.append(getColorname() + ", ");
+        sb.append(size.toString() + " - ");
         sb.append(cost + " Euro");
         return sb.toString();
     }
 
-    private String getColorname() {
-        if (color.equals(Color.BLACK))
-            return "Black";
-        else if (color.equals(Color.BLUE))
-            return "Blue";
-        else if (color.equals(Color.GREEN))
-            return "Green";
-        else if (color.equals(Color.CYAN))
-            return "Cyan";
-        else if (color.equals(Color.MAGENTA))
-            return "Magenta";
-        else if (color.equals(Color.ORANGE))
-            return "Orange";
-        return "";
+
+    private void colorInfos() {
+        StringBuilder sb = new StringBuilder("res/");
+        sb.append(type.toString());
+        sb.append("/");
+        if (color.equals(Color.BLACK)) {
+            sb.append("black.png");
+        } else if (color.equals(Color.BLUE)) {
+            sb.append("blue.png");
+        } else if (color.equals(Color.GREEN)) {
+            sb.append("green.png");
+        } else if (color.equals(Color.CYAN)) {
+            sb.append("cyan.png");
+        } else if (color.equals(Color.MAGENTA)) {
+            sb.append("magenta.png");
+        } else if (color.equals(Color.ORANGE)) {
+            sb.append("orange.png");
+        }
+        icon = new ImageIcon(sb.toString());
     }
 }
