@@ -44,5 +44,7 @@ public class Repository {
         shoppingCart.getCart().clear();
     }
 
-
+    public void emptyCart() {
+        shoppingCart.getCart().clear();
+    }
 }
