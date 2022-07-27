@@ -36,18 +36,18 @@ public class ShoppingCartInterface extends JFrame implements ActionListener {
         initButtons();
     }
 
-    private void initList(){
+    private void initList() {
         jList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         jList.setFont(new Font("Arial", Font.PLAIN, 20));
-        jList.setBorder(new EmptyBorder(10,50,10,10));
+        jList.setBorder(new EmptyBorder(10, 50, 10, 10));
         jList.setFixedCellHeight(60);
         pane = new JScrollPane(jList);
-        for (Clothing c: repo.getCart()){
+        for (Clothing c : repo.getCart()) {
             model.addElement(c);
         }
     }
 
-    private void initButtons(){
+    private void initButtons() {
 
         delete = new JButton("delete");
         delete.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -74,19 +74,19 @@ public class ShoppingCartInterface extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == back) {
             List selectedValues = jList.getSelectedValuesList();
-            for (Object o: selectedValues){
+            for (Object o : selectedValues) {
                 System.out.println(o.toString());
             }
             new Menue();
             dispose();
-        } else if (e.getSource() == checkout){
-            for (Clothing c: repo.getCart()){
+        } else if (e.getSource() == checkout) {
+            for (Clothing c : repo.getCart()) {
                 repo.sell(c);
             }
             repo.emptyCart();
             new Menue();
             dispose();
-        } else if (e.getSource() == delete){
+        } else if (e.getSource() == delete) {
             int counter = 0;
             for (int i : jList.getSelectedIndices()) {
                 if (model.getSize() > 0) {
