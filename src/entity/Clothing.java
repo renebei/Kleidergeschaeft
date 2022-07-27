@@ -70,7 +70,8 @@ public class Clothing {
         StringBuilder sb = new StringBuilder();
         sb.append(type.toString()+ ", ");
         sb.append(size.toString() + " - ");
-        sb.append(cost + " Euro");
+        sb.append(cost + " Euro - ");
+        sb.append(quantity + " in Stock");
         return sb.toString();
     }
 
