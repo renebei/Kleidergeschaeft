@@ -40,6 +40,9 @@ public class Repository {
     public List<Clothing> getCart() {
         return shoppingCart.getCart();
     }
+    public void emptyCart() {
+        shoppingCart.getCart().clear();
+    }
 
 
 }
