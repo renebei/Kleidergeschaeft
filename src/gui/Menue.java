@@ -12,13 +12,13 @@ import java.awt.event.ActionListener;
 public class Menue extends JFrame implements ActionListener {
 
     private JPanel panel;
-    private JButton search, checkout;
+    private JButton search, cart;
 
     public Menue() {
         super("Store");
         panel = new JPanel();
         setLayout(new BorderLayout());
-        panel.setLayout(new GridLayout(4, 4));
+        panel.setLayout(new GridLayout(1,1));
         setSize(1000, 1000);
         add(panel, BorderLayout.CENTER);
         setVisible(true);
@@ -27,15 +27,15 @@ public class Menue extends JFrame implements ActionListener {
 
 
     private void initButtons() {
-        this.search = new JButton("Search for Clothes");
+        this.search = new JButton(new ImageIcon("res/search.png"));
         this.search.addActionListener(this);
         this.search.setFont(new Font("Arial", Font.PLAIN, 40));
         this.panel.add(search);
 
-        this.checkout = new JButton("Shopping Cart");
-        this.checkout.addActionListener(this);
-        this.checkout.setFont(new Font("Arial", Font.PLAIN, 40));
-        this.panel.add(checkout);
+        this.cart = new JButton(new ImageIcon("res/cart.png"));
+        this.cart.addActionListener(this);
+        this.cart.setFont(new Font("Arial", Font.PLAIN, 40));
+        this.panel.add(cart, BorderLayout.LINE_END);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class Menue extends JFrame implements ActionListener {
         if (source == search) {
             new SearchInterface();
             dispose();
-        } else if (source == checkout) {
+        } else if (source == cart) {
             new ShoppingCartInterface();
             dispose();
         }

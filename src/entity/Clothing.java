@@ -68,6 +68,7 @@ public class Clothing {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
+        sb.append(type.toString()+ ", ");
         sb.append(size.toString() + " - ");
         sb.append(cost + " Euro");
         return sb.toString();

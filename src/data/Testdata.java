@@ -17,9 +17,7 @@ class Testdata {
     private static List<Clothing> data;
     private static Testdata database;
 
-    private Testdata() {
-
-    }
+    private Testdata() {}
 
     public static Testdata generate() {
         if(database == null) {
