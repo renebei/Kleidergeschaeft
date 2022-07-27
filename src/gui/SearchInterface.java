@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 
 public class SearchInterface extends JFrame implements ActionListener {
     private ClothingType cType;
-    private JButton tShirt, jeans, jacket, hoodie;
+    private JButton tShirt, jeans, jacket, hoodie, home;
 
 
     private JPanel panel;
@@ -52,6 +52,9 @@ public class SearchInterface extends JFrame implements ActionListener {
             cType = ClothingType.Jacket;
         } else if (source == hoodie) {
             cType = ClothingType.Hoodie;
+        } else if (source == home){
+            new Menue();
+            dispose();
         }
         try {
             int maxPrice = Integer.parseInt(res.getText());
@@ -69,7 +72,7 @@ public class SearchInterface extends JFrame implements ActionListener {
         Icon jeansIcon = new ImageIcon("Kleidergeschaeft/res/Jeans.png");
         Icon hoodieIcon = new ImageIcon("Kleidergeschaeft/res/hoodie.png");
         Icon jacketIcon = new ImageIcon("Kleidergeschaeft/res/Jacket.png");
-
+        Icon homeIcon = new ImageIcon("Kleidergeschaeft/res/Jeans.png");
         this.tShirt = new JButton(tshirtIcon);
         this.tShirt.addActionListener(this);
         this.tShirt.setFont(new Font("Arial", Font.PLAIN, 40));
@@ -89,6 +92,11 @@ public class SearchInterface extends JFrame implements ActionListener {
         this.jacket.addActionListener(this);
         this.jacket.setFont(new Font("Arial", Font.PLAIN, 40));
         this.panel.add(jacket);
+
+        this.home = new JButton("home");
+        this.home.addActionListener(this);
+        this.home.setFont(new Font("Arial", Font.PLAIN, 40));
+        add(home, BorderLayout.SOUTH);
     }
 
     private void clearButtons() {

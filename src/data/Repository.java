@@ -31,10 +31,12 @@ public class Repository {
 
     public void addToCart(Clothing c) {
         shoppingCart.addToCart(c);
+        c.setQuantity(c.getQuantity() - 1);
     }
 
     public void removeFromCart(Clothing c) {
         shoppingCart.removeFromCart(c);
+        c.setQuantity(c.getQuantity() + 1);
     }
 
     public List<Clothing> getCart() {

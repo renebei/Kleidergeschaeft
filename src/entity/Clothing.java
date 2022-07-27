@@ -77,7 +77,7 @@ public class Clothing {
 
 
     private void colorInfos() {
-        StringBuilder sb = new StringBuilder("res/");
+        StringBuilder sb = new StringBuilder("Kleidergeschaeft/res/");
         sb.append(type.toString());
         sb.append("/");
         if (color.equals(Color.BLACK)) {

@@ -16,7 +16,7 @@ import java.util.List;
 
 public class SearchResults extends JFrame implements ActionListener {
 
-    private JPanel panel;
+    private JPanel panel2, panel1;
     private Menue parent;
     private List<Clothing> results;
 
@@ -27,38 +27,51 @@ public class SearchResults extends JFrame implements ActionListener {
 
     public SearchResults(List<Clothing> results) {
         super("List");
-        panel = new JPanel();
+        panel1 = new JPanel();
+        panel2 = new JPanel();
         setLayout(new BorderLayout());
-        panel.setLayout(new GridLayout(10, 10));
-        add(panel, BorderLayout.CENTER);
+        panel1.setLayout(new BorderLayout());
+        panel2.setLayout(new GridLayout(10, 10));
+        add(panel1, BorderLayout.CENTER);
+        panel1.add(panel2,BorderLayout.CENTER);
         setVisible(true);
-        setSize(1000, 1000);
+        setSize(750, 750);
         this.results = results;
-
         repo = new Repository();
 
         initButtons(results);
     }
 
     private void initButtons(List<Clothing> results) {
-        back = new JButton("Back to Search");
-        back.addActionListener(this);
-        back.setFont(new Font("Arial", Font.PLAIN, 20));
-        panel.add(back);
-
+        /**
+         * Falls wir später nochmal ne Liste draus machen wollen :)
+         * https://thewall.hehoe.de/content/coding:java:java_tut_7
+         */
         int i = 0;
         for (Clothing c : results) {
             JButton tmp = new JButton(c.toString(), c.getIcon());
             tmp.setName(String.valueOf(i));
             tmp.addActionListener(this);
             tmp.setFont(new Font("Arial", Font.PLAIN, 20));
-            panel.add(tmp);
+            tmp.setSize(new Dimension(1000,500));
+            panel2.add(tmp);
             i++;
         }
-        backToMenue = new JButton("Back to Home");
+        Icon homeIcon = new ImageIcon(new ImageIcon("Kleidergeschaeft/res/home.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
+        backToMenue = new JButton(homeIcon);
         backToMenue.addActionListener(this);
-        backToMenue.setFont(new Font("Arial", Font.PLAIN, 20));
-        panel.add(backToMenue);
+        backToMenue.setFont(new Font("Arial", Font.PLAIN, 40));
+        panel1.add(backToMenue, BorderLayout.SOUTH);
+
+        /**
+         * Rezise Icons:
+         * https://stackoverflow.com/questions/6714045/how-to-resize-jlabel-imageicon
+         */
+        Icon searchIcon = new ImageIcon(new ImageIcon("Kleidergeschaeft/res/search.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
+        back = new JButton(searchIcon);
+        back.addActionListener(this);
+        back.setFont(new Font("Arial", Font.PLAIN, 5));
+        add(back, BorderLayout.SOUTH);
     }
 
     @Override
@@ -72,9 +85,12 @@ public class SearchResults extends JFrame implements ActionListener {
             dispose();
         } else {
             int id = Integer.parseInt(source.getName());
-            source.setBackground(Color.GREEN);
-            repo.addToCart(results.get(id));
-            source.setEnabled(false);
+            int sameItemsInCart = 0;
+            if(sameItemsInCart < results.get(id).getQuantity()) {
+                source.setBackground(Color.GREEN);
+                repo.addToCart(results.get(id));
+                source.setEnabled(false);
+            }
         }
     }
 }

@@ -26,7 +26,7 @@ public class ShoppingCartInterface extends JFrame implements ActionListener {
         jList = new JList(model);
         add(panel);
         setVisible(true);
-        setSize(1000, 1000);
+        setSize(750, 750);
         repo = new Repository();
         init();
     }
@@ -48,26 +48,30 @@ public class ShoppingCartInterface extends JFrame implements ActionListener {
     }
 
     private void initButtons() {
+        Icon homeIcon = new ImageIcon(new ImageIcon("Kleidergeschaeft/res/home.png").getImage().getScaledInstance(60,60, Image.SCALE_DEFAULT));
+        Icon deleteIcon = new ImageIcon(new ImageIcon("Kleidergeschaeft/res/delete.png").getImage().getScaledInstance(80,80, Image.SCALE_DEFAULT));
+        Icon checkoutIcon = new ImageIcon(new ImageIcon("Kleidergeschaeft/res/money.png").getImage().getScaledInstance(80,80, Image.SCALE_DEFAULT));
 
-        delete = new JButton("delete");
+
+        delete = new JButton(deleteIcon);
         delete.setFont(new Font("Arial", Font.PLAIN, 20));
-        delete.setPreferredSize(new Dimension(500, 50));
+        delete.setPreferredSize(new Dimension(375, 50));
         delete.addActionListener(this);
 
-        checkout = new JButton("Checkout");
+        checkout = new JButton(checkoutIcon);
         checkout.setFont(new Font("Arial", Font.PLAIN, 20));
-        checkout.setPreferredSize(new Dimension(500, 100));
+        checkout.setPreferredSize(new Dimension(375, 50));
         checkout.addActionListener(this);
 
-        back = new JButton("Back");
+        back = new JButton(homeIcon);
         back.addActionListener(this);
-        back.setPreferredSize(new Dimension(500, 50));
-        back.setFont(new Font("Arial", Font.PLAIN, 20));
+        back.setPreferredSize(new Dimension(375, 100));
 
-        panel.add(checkout, BorderLayout.SOUTH);
-        panel.add(delete, BorderLayout.WEST);
+
+        panel.add(back, BorderLayout.SOUTH);
+        panel.add(checkout, BorderLayout.WEST);
         panel.add(pane, BorderLayout.NORTH);
-        panel.add(back, BorderLayout.EAST);
+        panel.add(delete, BorderLayout.EAST);
     }
 
     @Override
