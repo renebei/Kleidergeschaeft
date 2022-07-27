@@ -38,5 +38,7 @@ public class Repository {
         return shoppingCart.getCart();
     }
 
-
+    public void emptyCart() {
+        shoppingCart.getCart().clear();
+    }
 }

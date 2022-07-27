@@ -4,27 +4,26 @@ import data.Repository;
 import entity.Clothing;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ShoppingCartInterface extends JFrame implements ActionListener {
-    private JButton back, checkout;
+    private JButton back, delete, checkout;
     private JPanel panel;
+    private JScrollPane pane;
     private JList jList;
-
+    private DefaultListModel model;
     private Repository repo;
 
     public ShoppingCartInterface() {
         super("Shopping Cart");
         panel = new JPanel();
         panel.setLayout(new BorderLayout());
+        model = new DefaultListModel();
+        jList = new JList(model);
         add(panel);
         setVisible(true);
         setSize(1000, 1000);
@@ -33,42 +32,42 @@ public class ShoppingCartInterface extends JFrame implements ActionListener {
     }
 
     private void init() {
-       /*
-        for (Clothing c : repo.getCart()) {
-            JButton tmp = new JButton(c.toString());
-            tmp.addActionListener(this);
-            tmp.setFont(new Font("Arial", Font.PLAIN, 20));
-            panel.add(tmp);
-        }
-        */
-        jList = new JList(repo.getCart().toArray());
-        JScrollPane scrollPane = new JScrollPane();
-        scrollPane.setViewportView(jList);
-        jList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        initList();
+        initButtons();
+    }
+
+    private void initList(){
+        jList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         jList.setFont(new Font("Arial", Font.PLAIN, 20));
         jList.setBorder(new EmptyBorder(10,50,10,10));
         jList.setFixedCellHeight(60);
+        pane = new JScrollPane(jList);
+        for (Clothing c: repo.getCart()){
+            model.addElement(c);
+        }
+    }
 
+    private void initButtons(){
 
-        jList.addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                int id = jList.getSelectedIndex();
-                System.out.println(id);
-                repo.getCart().remove(id);
-                new ShoppingCartInterface();
-                dispose();
+        delete = new JButton("delete");
+        delete.setFont(new Font("Arial", Font.PLAIN, 20));
+        delete.setPreferredSize(new Dimension(500, 50));
+        delete.addActionListener(this);
 
-            }
-        });
+        checkout = new JButton("Checkout");
+        checkout.setFont(new Font("Arial", Font.PLAIN, 20));
+        checkout.setPreferredSize(new Dimension(500, 100));
+        checkout.addActionListener(this);
 
-
-        panel.add(new JScrollPane(jList), BorderLayout.CENTER);
         back = new JButton("Back");
-        back.setPreferredSize(new Dimension(getWidth(), 200));
         back.addActionListener(this);
+        back.setPreferredSize(new Dimension(500, 50));
         back.setFont(new Font("Arial", Font.PLAIN, 20));
-        panel.add(back, BorderLayout.PAGE_END);
+
+        panel.add(checkout, BorderLayout.SOUTH);
+        panel.add(delete, BorderLayout.WEST);
+        panel.add(pane, BorderLayout.NORTH);
+        panel.add(back, BorderLayout.EAST);
     }
 
     @Override
@@ -80,6 +79,22 @@ public class ShoppingCartInterface extends JFrame implements ActionListener {
             }
             new Menue();
             dispose();
+        } else if (e.getSource() == checkout){
+            for (Clothing c: repo.getCart()){
+                repo.sell(c);
+            }
+            repo.emptyCart();
+            new Menue();
+            dispose();
+        } else if (e.getSource() == delete){
+            int counter = 0;
+            for (int i : jList.getSelectedIndices()) {
+                if (model.getSize() > 0) {
+                    repo.removeFromCart((Clothing) model.get(i - counter));
+                    model.remove(i - counter);
+                    counter++;
+                }
+            }
         }
     }
 }

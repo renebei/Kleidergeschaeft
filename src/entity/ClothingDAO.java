@@ -24,7 +24,7 @@ public class ClothingDAO {
     public List<Clothing> search(ClothingType type) {
         List<Clothing> temp = new ArrayList<>();
         for (Clothing c : testdata) {
-            if (c.getType() == type) temp.add(c);
+            if (c.getType() == type && c.getQuantity() > 0) temp.add(c);
         }
         return temp;
     }
