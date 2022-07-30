@@ -9,12 +9,12 @@ import java.awt.event.ActionListener;
  * @author René Beiermann
  */
 
-public class Menue extends JFrame implements ActionListener {
+public class Home extends JFrame implements ActionListener {
 
     private JPanel panel;
     private JButton search, cart;
 
-    public Menue() {
+    public Home() {
         super("Store");
         panel = new JPanel();
         setLayout(new BorderLayout());
@@ -44,10 +44,10 @@ public class Menue extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         JButton source = (JButton) e.getSource();
         if (source == search) {
-            new SearchInterface();
+            new Search();
             dispose();
         } else if (source == cart) {
-            new ShoppingCartInterface();
+            new Cart();
             dispose();
         }
     }

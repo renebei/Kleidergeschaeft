@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class ShoppingCartInterface extends JFrame implements ActionListener {
+public class Cart extends JFrame implements ActionListener {
     private JButton back, delete, checkout;
     private JPanel panel;
     private JScrollPane pane;
@@ -18,7 +18,7 @@ public class ShoppingCartInterface extends JFrame implements ActionListener {
     private DefaultListModel model;
     private Repository repo;
 
-    public ShoppingCartInterface() {
+    public Cart() {
         super("Shopping Cart");
         panel = new JPanel();
         panel.setLayout(new BorderLayout());
@@ -81,14 +81,14 @@ public class ShoppingCartInterface extends JFrame implements ActionListener {
             for (Object o : selectedValues) {
                 System.out.println(o.toString());
             }
-            new Menue();
+            new Home();
             dispose();
         } else if (e.getSource() == checkout) {
             for (Clothing c : repo.getCart()) {
                 repo.sell(c);
             }
             repo.emptyCart();
-            new Menue();
+            new Home();
             dispose();
         } else if (e.getSource() == delete) {
             int counter = 0;

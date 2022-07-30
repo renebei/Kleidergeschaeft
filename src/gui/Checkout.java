@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class CheckoutInterface extends JFrame implements ActionListener {
+public class Checkout extends JFrame implements ActionListener {
     private JPanel panel;
     private JList list;
     List<Clothing> cart;
@@ -18,7 +18,7 @@ public class CheckoutInterface extends JFrame implements ActionListener {
 
     }
 
-    public CheckoutInterface(List<Clothing> clothes){
+    public Checkout(List<Clothing> clothes){
         super("Kleidergeschaeft");
         this.cart = clothes;
         setLayout(new BorderLayout());
