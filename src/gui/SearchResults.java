@@ -17,7 +17,7 @@ import java.util.List;
 public class SearchResults extends JFrame implements ActionListener {
 
     private JPanel panel2, panel1;
-    private Home parent;
+
     private List<Clothing> results;
 
     private JButton back;

@@ -12,10 +12,12 @@ public class Repository {
 
     private ClothingDAO clothingDAO;
     private ShoppingCart shoppingCart;
+    private CustomerDAO customerDAO;
 
     public Repository() {
         this.clothingDAO = new ClothingDAO(Testdata.generate().getData());
         this.shoppingCart = ShoppingCart.getInstance();
+        this.customerDAO = new CustomerDAO(CustomerBook.getInstance().getCustomers());
     }
 
     public List<Clothing> search(ClothingType type, int cost) {
@@ -46,4 +48,22 @@ public class Repository {
         shoppingCart.getCart().clear();
     }
 
+    public int calcTotal() {
+        return shoppingCart.calcTotal();
+    }
+
+    public void purchase() {
+        for (Clothing c : getCart()) {
+            shoppingCart.getCart().remove(c);
+            clothingDAO.sell(c);
+        }
+    }
+
+    public boolean addCustomer(Customer c) {
+        return customerDAO.addCustomer(c);
+    }
+
+    public Customer getCurrentCustomer() {
+        return customerDAO.getCurrent();
+    }
 }

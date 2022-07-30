@@ -19,7 +19,7 @@ public class Home extends JFrame implements ActionListener {
         panel = new JPanel();
         setLayout(new BorderLayout());
         panel.setLayout(new GridLayout(1,1));
-        setSize(1000, 1000);
+        setSize(750, 750);
         add(panel, BorderLayout.CENTER);
         setVisible(true);
         initButtons();

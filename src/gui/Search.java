@@ -30,7 +30,7 @@ public class Search extends JFrame implements ActionListener {
         add(panel, BorderLayout.CENTER);
         add(res, BorderLayout.NORTH);
         setVisible(true);
-        setSize(1000, 1000);
+        setSize(750, 750);
         res.setFont(new Font("Arial", Font.PLAIN, 40));
         res.setText("Enter Price Range");
         repo = new Repository();

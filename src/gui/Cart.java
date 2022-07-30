@@ -84,11 +84,7 @@ public class Cart extends JFrame implements ActionListener {
             new Home();
             dispose();
         } else if (e.getSource() == checkout) {
-            for (Clothing c : repo.getCart()) {
-                repo.sell(c);
-            }
-            repo.emptyCart();
-            new Home();
+            new Checkout();
             dispose();
         } else if (e.getSource() == delete) {
             int counter = 0;
