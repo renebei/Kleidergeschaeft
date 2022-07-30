@@ -29,12 +29,12 @@ public class Menue extends JFrame implements ActionListener {
 
 
     private void initButtons() {
-        this.search = new JButton(new ImageIcon("Kleidergeschaeft/res/search.png"));
+        this.search = new JButton(new ImageIcon("res/search.png"));
         this.search.addActionListener(this);
         this.search.setFont(new Font("Arial", Font.PLAIN, 40));
         this.panel.add(search);
 
-        this.cart = new JButton(new ImageIcon("Kleidergeschaeft/res/cart.png"));
+        this.cart = new JButton(new ImageIcon("res/cart.png"));
         this.cart.addActionListener(this);
         this.cart.setFont(new Font("Arial", Font.PLAIN, 40));
         this.panel.add(cart, BorderLayout.LINE_END);

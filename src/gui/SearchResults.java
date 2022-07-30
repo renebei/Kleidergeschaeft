@@ -57,7 +57,7 @@ public class SearchResults extends JFrame implements ActionListener {
             panel2.add(tmp);
             i++;
         }
-        Icon homeIcon = new ImageIcon(new ImageIcon("Kleidergeschaeft/res/home.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
+        Icon homeIcon = new ImageIcon(new ImageIcon("res/home.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
         backToMenue = new JButton(homeIcon);
         backToMenue.addActionListener(this);
         backToMenue.setFont(new Font("Arial", Font.PLAIN, 40));
@@ -67,7 +67,7 @@ public class SearchResults extends JFrame implements ActionListener {
          * Rezise Icons:
          * https://stackoverflow.com/questions/6714045/how-to-resize-jlabel-imageicon
          */
-        Icon searchIcon = new ImageIcon(new ImageIcon("Kleidergeschaeft/res/search.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
+        Icon searchIcon = new ImageIcon(new ImageIcon("res/search.png").getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
         back = new JButton(searchIcon);
         back.addActionListener(this);
         back.setFont(new Font("Arial", Font.PLAIN, 5));
