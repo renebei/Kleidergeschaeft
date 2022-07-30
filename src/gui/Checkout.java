@@ -68,8 +68,8 @@ public class Checkout extends JFrame implements ActionListener {
         jList.setFixedCellHeight(60);
         pane = new JScrollPane(jList);
         model.addElement("Total is: " + repo.calcTotal() + "€");
-        model.addElement("Go back to edit your Shopping Cart or enter your details to finish the order");
-        if(repo.getCurrentCustomer() != null) {
+
+        if (repo.getCurrentCustomer() != null) {
             insertCurrentUser();
         }
     }
@@ -83,7 +83,7 @@ public class Checkout extends JFrame implements ActionListener {
         } else if (source == cart) {
             new Cart();
         } else if (source == purchase) {
-            if(repo.getCurrentCustomer() == null) {
+            if (repo.getCurrentCustomer() == null) {
                 new Form(this);
             } else {
                 repo.purchase();
@@ -92,6 +92,7 @@ public class Checkout extends JFrame implements ActionListener {
             }
         }
     }
+
     public void insertCurrentUser() {
         model.addElement("\n");
         model.addElement("Deliver to: ");

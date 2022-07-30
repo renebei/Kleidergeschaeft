@@ -68,11 +68,12 @@ public class Search extends JFrame implements ActionListener {
     }
 
     private void initButtons() {
+        Icon homeIcon = new ImageIcon(new ImageIcon("res/home.png").getImage().getScaledInstance(60, 60, Image.SCALE_DEFAULT));
         Icon tshirtIcon = new ImageIcon("res/Tshirt.png");
         Icon jeansIcon = new ImageIcon("res/Jeans.png");
         Icon hoodieIcon = new ImageIcon("res/hoodie.png");
         Icon jacketIcon = new ImageIcon("res/Jacket.png");
-        Icon homeIcon = new ImageIcon("res/Jeans.png");
+
         this.tShirt = new JButton(tshirtIcon);
         this.tShirt.addActionListener(this);
         this.tShirt.setFont(new Font("Arial", Font.PLAIN, 40));
@@ -93,7 +94,7 @@ public class Search extends JFrame implements ActionListener {
         this.jacket.setFont(new Font("Arial", Font.PLAIN, 40));
         this.panel.add(jacket);
 
-        this.home = new JButton("home");
+        this.home = new JButton(homeIcon);
         this.home.addActionListener(this);
         this.home.setFont(new Font("Arial", Font.PLAIN, 40));
         add(home, BorderLayout.SOUTH);
