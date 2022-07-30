@@ -17,7 +17,7 @@ import java.util.List;
 public class SearchResults extends JFrame implements ActionListener {
 
     private JPanel panel2, panel1;
-    private Menue parent;
+    private Home parent;
     private List<Clothing> results;
 
     private JButton back;
@@ -78,10 +78,10 @@ public class SearchResults extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         JButton source = (JButton) e.getSource();
         if (source == back) {
-            new SearchInterface();
+            new Search();
             dispose();
         } else if (source == backToMenue) {
-            new Menue();
+            new Home();
             dispose();
         } else {
             int id = Integer.parseInt(source.getName());

@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
  * @author René Beiermann
  */
 
-public class SearchInterface extends JFrame implements ActionListener {
+public class Search extends JFrame implements ActionListener {
     private ClothingType cType;
     private JButton tShirt, jeans, jacket, hoodie, home;
 
@@ -21,7 +21,7 @@ public class SearchInterface extends JFrame implements ActionListener {
     private Repository repo;
 
 
-    public SearchInterface() {
+    public Search() {
         super("Search");
         this.res = new JTextField(10);
         panel = new JPanel();
@@ -53,7 +53,7 @@ public class SearchInterface extends JFrame implements ActionListener {
         } else if (source == hoodie) {
             cType = ClothingType.Hoodie;
         } else if (source == home){
-            new Menue();
+            new Home();
             dispose();
         }
         try {
