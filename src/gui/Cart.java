@@ -48,9 +48,9 @@ public class Cart extends JFrame implements ActionListener {
     }
 
     private void initButtons() {
-        Icon homeIcon = new ImageIcon(new ImageIcon("Kleidergeschaeft/res/home.png").getImage().getScaledInstance(60,60, Image.SCALE_DEFAULT));
-        Icon deleteIcon = new ImageIcon(new ImageIcon("Kleidergeschaeft/res/delete.png").getImage().getScaledInstance(80,80, Image.SCALE_DEFAULT));
-        Icon checkoutIcon = new ImageIcon(new ImageIcon("Kleidergeschaeft/res/money.png").getImage().getScaledInstance(80,80, Image.SCALE_DEFAULT));
+        Icon homeIcon = new ImageIcon(new ImageIcon("res/home.png").getImage().getScaledInstance(60,60, Image.SCALE_DEFAULT));
+        Icon deleteIcon = new ImageIcon(new ImageIcon("res/delete.png").getImage().getScaledInstance(80,80, Image.SCALE_DEFAULT));
+        Icon checkoutIcon = new ImageIcon(new ImageIcon("res/money.png").getImage().getScaledInstance(80,80, Image.SCALE_DEFAULT));
 
 
         delete = new JButton(deleteIcon);
