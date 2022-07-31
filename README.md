@@ -1,10 +1,8 @@
 # OOAD René Beiermann, Maximilian Krebs
 
 ## TODO
-- Observer Observable für Shopping Cart (wurde gecancled, singelton wins)
-- JFrame a la Picasso
-- JList
-- Shopping Cart Interface
+- JFrame a la Picasso (Guter Progress)
+- Icon in JList ballern
 
 
 - Use Case 
@@ -16,7 +14,6 @@
 - Bericht (0/12)
 
 ## EXTRAS
-- Checkout Interface
 - Multithreading
 - Datenbank (SQLite etc.)
 
