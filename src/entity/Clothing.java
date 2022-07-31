@@ -11,13 +11,13 @@ import java.util.Random;
 public class Clothing {
 
     private Size size;
-    private ClothingType type;
+    private Type type;
     private Color color;
     private int quantity;
     private int cost;
     private Icon icon;
 
-    public Clothing(Size size, ClothingType type, Color color, int quantity) {
+    public Clothing(Size size, Type type, Color color, int quantity) {
         this.size = size;
         this.type = type;
         this.color = color;
@@ -34,7 +34,7 @@ public class Clothing {
         this.size = size;
     }
 
-    public ClothingType getType() {
+    public Type getType() {
         return type;
     }
 
@@ -42,7 +42,7 @@ public class Clothing {
         return icon;
     }
 
-    public void setType(ClothingType type) {
+    public void setType(Type type) {
         this.type = type;
     }
 
@@ -68,13 +68,11 @@ public class Clothing {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(type.toString()+ ", ");
+        sb.append(type.toString()+ " - ");
         sb.append(size.toString() + " - ");
-        sb.append(cost + " Euro - ");
-        sb.append(quantity + " in Stock");
+        sb.append(cost + " Euro");
         return sb.toString();
     }
-
 
     private void colorInfos() {
         StringBuilder sb = new StringBuilder("res/");

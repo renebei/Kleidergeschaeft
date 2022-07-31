@@ -10,6 +10,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+/**
+ * @author René Beiermann
+ */
 public class Checkout extends JFrame implements ActionListener {
     private JPanel panel;
     private JButton home, cart, purchase, total;
@@ -86,7 +89,8 @@ public class Checkout extends JFrame implements ActionListener {
             if (repo.getCurrentCustomer() == null) {
                 new Form(this);
             } else {
-                repo.purchase();
+                repo.purchase(repo.getCart().toArray(new Clothing[0]));
+                JOptionPane.showMessageDialog(null, "Purchase completed!");
                 new Home();
                 dispose();
             }

@@ -2,7 +2,9 @@ package data;
 
 import entity.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author René Beiermann
@@ -20,16 +22,11 @@ public class Repository {
         this.customerDAO = new CustomerDAO(CustomerBook.getInstance().getCustomers());
     }
 
-    public List<Clothing> search(ClothingType type, int cost) {
+    public List<Clothing> search(Type type, int cost) {
         if (cost == 0)
             return clothingDAO.search(type);
         return clothingDAO.search(type, cost);
     }
-
-    public boolean sell(Clothing c) {
-        return clothingDAO.sell(c);
-    }
-
 
     public void addToCart(Clothing c) {
         shoppingCart.addToCart(c);
@@ -44,19 +41,14 @@ public class Repository {
     public List<Clothing> getCart() {
         return shoppingCart.getCart();
     }
-    public void emptyCart() {
-        shoppingCart.getCart().clear();
-    }
 
     public int calcTotal() {
         return shoppingCart.calcTotal();
     }
 
-    public void purchase() {
-        for (Clothing c : getCart()) {
-            shoppingCart.getCart().remove(c);
-            clothingDAO.sell(c);
-        }
+    public void purchase(Clothing... clothing) {
+       shoppingCart.getCart().clear();
+       customerDAO.addToHistory(clothing);
     }
 
     public boolean addCustomer(Customer c) {
@@ -65,5 +57,9 @@ public class Repository {
 
     public Customer getCurrentCustomer() {
         return customerDAO.getCurrent();
+    }
+
+    public Map<String, Clothing> getHistory() {
+        return customerDAO.getHistory();
     }
 }

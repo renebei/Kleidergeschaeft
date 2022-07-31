@@ -48,9 +48,9 @@ public class Cart extends JFrame implements ActionListener {
     }
 
     private void initButtons() {
-        Icon homeIcon = new ImageIcon(new ImageIcon("res/home.png").getImage().getScaledInstance(60,60, Image.SCALE_DEFAULT));
-        Icon deleteIcon = new ImageIcon(new ImageIcon("res/delete.png").getImage().getScaledInstance(80,80, Image.SCALE_DEFAULT));
-        Icon checkoutIcon = new ImageIcon(new ImageIcon("res/money.png").getImage().getScaledInstance(80,80, Image.SCALE_DEFAULT));
+        Icon homeIcon = new ImageIcon(new ImageIcon("res/home.png").getImage().getScaledInstance(60, 60, Image.SCALE_DEFAULT));
+        Icon deleteIcon = new ImageIcon(new ImageIcon("res/delete.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT));
+        Icon checkoutIcon = new ImageIcon(new ImageIcon("res/money.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT));
 
 
         delete = new JButton(deleteIcon);
@@ -69,9 +69,9 @@ public class Cart extends JFrame implements ActionListener {
 
 
         panel.add(back, BorderLayout.SOUTH);
-        panel.add(checkout, BorderLayout.WEST);
+        panel.add(checkout, BorderLayout.EAST);
         panel.add(pane, BorderLayout.NORTH);
-        panel.add(delete, BorderLayout.EAST);
+        panel.add(delete, BorderLayout.WEST);
     }
 
     @Override
@@ -88,6 +88,8 @@ public class Cart extends JFrame implements ActionListener {
             dispose();
         } else if (e.getSource() == delete) {
             int counter = 0;
+            if (jList.getSelectedIndices().length == 0)
+                JOptionPane.showMessageDialog(null, "Select items to delete.");
             for (int i : jList.getSelectedIndices()) {
                 if (model.getSize() > 0) {
                     repo.removeFromCart((Clothing) model.get(i - counter));

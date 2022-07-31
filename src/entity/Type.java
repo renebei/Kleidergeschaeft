@@ -4,6 +4,6 @@ package entity;
  * @author René Beiermann
  */
 
-public enum ClothingType {
+public enum Type {
     TShirt, Jeans, Jacket, Hoodie;
 }

@@ -1,5 +1,7 @@
 package gui;
 
+import data.Repository;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -12,23 +14,28 @@ import java.awt.event.ActionListener;
 public class Home extends JFrame implements ActionListener {
 
     private JPanel panel;
-    private JButton search, cart;
+    private JButton search, cart, profile;
 
     public Home() {
-        super("Store");
+        super("Home");
         panel = new JPanel();
         setLayout(new BorderLayout());
-        panel.setLayout(new GridLayout(1,1));
-        setSize(750, 750);
+        panel.setLayout(new GridLayout(3, 1));
         add(panel, BorderLayout.CENTER);
         setVisible(true);
+        setSize(750, 750);
+
         initButtons();
         panel.validate();
 
     }
 
-
     private void initButtons() {
+        this.profile = new JButton(new ImageIcon("res/profile.png"));
+        this.profile.addActionListener(this);
+        this.profile.setFont(new Font("Arial", Font.PLAIN, 40));
+        this.panel.add(profile);
+
         this.search = new JButton(new ImageIcon("res/search.png"));
         this.search.addActionListener(this);
         this.search.setFont(new Font("Arial", Font.PLAIN, 40));
@@ -37,7 +44,7 @@ public class Home extends JFrame implements ActionListener {
         this.cart = new JButton(new ImageIcon("res/cart.png"));
         this.cart.addActionListener(this);
         this.cart.setFont(new Font("Arial", Font.PLAIN, 40));
-        this.panel.add(cart, BorderLayout.LINE_END);
+        this.panel.add(cart);
     }
 
     @Override
@@ -49,6 +56,13 @@ public class Home extends JFrame implements ActionListener {
         } else if (source == cart) {
             new Cart();
             dispose();
+        } else if (source == profile) {
+            if (new Repository().getHistory() == null) {
+                JOptionPane.showMessageDialog(null, "No user found. Make your first Purchase");
+            } else {
+                new Profile();
+                dispose();
+            }
         }
     }
 }

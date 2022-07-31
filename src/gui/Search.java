@@ -1,7 +1,6 @@
 package gui;
 
 import data.Repository;
-import entity.ClothingType;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +11,7 @@ import java.awt.event.ActionListener;
  */
 
 public class Search extends JFrame implements ActionListener {
-    private ClothingType cType;
+    private entity.Type cType;
     private JButton tShirt, jeans, jacket, hoodie, home;
 
 
@@ -45,13 +44,13 @@ public class Search extends JFrame implements ActionListener {
         clearButtons();
         source.setBackground(Color.lightGray);
         if (source == tShirt) {
-            cType = ClothingType.TShirt;
+            cType = entity.Type.TShirt;
         } else if (source == jeans) {
-            cType = ClothingType.Jeans;
+            cType = entity.Type.Jeans;
         } else if (source == jacket) {
-            cType = ClothingType.Jacket;
+            cType = entity.Type.Jacket;
         } else if (source == hoodie) {
-            cType = ClothingType.Hoodie;
+            cType = entity.Type.Hoodie;
         } else if (source == home){
             new Home();
             dispose();

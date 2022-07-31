@@ -25,7 +25,7 @@ public class ClothingDAO {
         return false;
     }
 
-    public List<Clothing> search(ClothingType type) {
+    public List<Clothing> search(Type type) {
         List<Clothing> temp = new ArrayList<>();
         for (Clothing c : testdata) {
             if (c.getType() == type && c.getQuantity() > 0) temp.add(c);
@@ -33,7 +33,7 @@ public class ClothingDAO {
         return temp;
     }
 
-    public List<Clothing> search(ClothingType type, int cost) {
+    public List<Clothing> search(Type type, int cost) {
         List<Clothing> temp = new ArrayList<>();
         for (Clothing c : testdata) {
             if (c.getType().equals(type) && c.getCost() <= cost) temp.add(c);

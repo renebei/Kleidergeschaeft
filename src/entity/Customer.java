@@ -1,7 +1,11 @@
 package entity;
 
-import java.util.Random;
+import java.time.LocalDateTime;
+import java.util.*;
 
+/**
+ * @author René Beiermann
+ */
 public class Customer {
 
     private String name;
@@ -9,6 +13,8 @@ public class Customer {
     private String address;
     private String eMail;
     private boolean loggedIn;
+
+    private Map<String, Clothing> purchaseHistory;
 
     private long customerID;
 
@@ -18,6 +24,7 @@ public class Customer {
         this.phoneNr = phoneNr;
         this.eMail = eMail;
         this.loggedIn = false;
+        purchaseHistory = new HashMap<>();
         this.customerID = new Random().nextLong(1000000000000L) + 100000000000L;
     }
 
@@ -69,12 +76,16 @@ public class Customer {
         this.customerID = customerID;
     }
 
-
-    public void logIn() {
-        loggedIn = true;
+    public boolean getLogIn() {
+        return loggedIn;
     }
 
-    public boolean isLoggedIn() {
-        return loggedIn;
+    public void setLogin(boolean b) {
+        this.loggedIn = b;
+    }
+
+
+    public Map<String, Clothing> getPurchaseHistory() {
+        return purchaseHistory;
     }
 }

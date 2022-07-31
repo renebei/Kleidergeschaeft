@@ -5,6 +5,9 @@ import entity.Customer;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author René Beiermann
+ */
 class CustomerBook {
 
     private static CustomerBook customerBook;
