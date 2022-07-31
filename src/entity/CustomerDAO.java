@@ -40,13 +40,13 @@ public class CustomerDAO {
                     clothing[i].setQuantity(1);
                     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd HH:mm:ss");
                     LocalDateTime now = LocalDateTime.now();
-                    c.getPurchaseHistory().put(dtf.format(now), clothing[i]);
+                    c.getPurchaseHistory().put(clothing[i], dtf.format(now));
                 }
             }
         }
     }
 
-    public Map<String, Clothing> getHistory() {
+    public Map<Clothing, String> getHistory() {
         for (Customer c : customers) {
             if (c.getLogIn()) {
                 return c.getPurchaseHistory();

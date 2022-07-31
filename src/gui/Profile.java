@@ -47,7 +47,7 @@ public class Profile extends JFrame implements ActionListener {
         pane = new JScrollPane(jList);
         for (var entry : repo.getHistory().entrySet()) {
             StringBuilder sb = new StringBuilder();
-            sb.append(entry.getKey() +  " | " + entry.getValue().toString() + "\n");
+            sb.append(entry.getKey() +  "   |   " + entry.getValue() + "\n");
             model.addElement(sb.toString());
         }
     }

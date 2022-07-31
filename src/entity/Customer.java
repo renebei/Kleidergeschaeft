@@ -14,7 +14,7 @@ public class Customer {
     private String eMail;
     private boolean loggedIn;
 
-    private Map<String, Clothing> purchaseHistory;
+    private Map<Clothing, String> purchaseHistory;
 
     private long customerID;
 
@@ -85,7 +85,7 @@ public class Customer {
     }
 
 
-    public Map<String, Clothing> getPurchaseHistory() {
+    public Map<Clothing, String> getPurchaseHistory() {
         return purchaseHistory;
     }
 }

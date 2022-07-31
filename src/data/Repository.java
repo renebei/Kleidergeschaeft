@@ -59,7 +59,7 @@ public class Repository {
         return customerDAO.getCurrent();
     }
 
-    public Map<String, Clothing> getHistory() {
+    public Map<Clothing, String> getHistory() {
         return customerDAO.getHistory();
     }
 }
