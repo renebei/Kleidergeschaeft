@@ -17,6 +17,9 @@ public class CustomerDAO {
 
     public boolean addCustomer(Customer c) {
         if (customers.contains(c)) return false;
+        for (Customer customer : customers) {
+            customer.setLogin(false);
+        }
         customers.add(c);
         c.setLogin(true);
         return true;

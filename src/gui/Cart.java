@@ -14,16 +14,16 @@ public class Cart extends JFrame implements ActionListener {
     private JButton back, delete, checkout;
     private JPanel panel;
     private JScrollPane pane;
-    private JList jList;
-    private DefaultListModel model;
+    private JList<Clothing> jList;
+    private DefaultListModel<Clothing> model;
     private Repository repo;
 
     public Cart() {
         super("Shopping Cart");
         panel = new JPanel();
         panel.setLayout(new BorderLayout());
-        model = new DefaultListModel();
-        jList = new JList(model);
+        model = new DefaultListModel<Clothing>();
+        jList = new JList<Clothing>(model);
         add(panel);
         setVisible(true);
         setSize(750, 750);
@@ -77,7 +77,7 @@ public class Cart extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == back) {
-            List selectedValues = jList.getSelectedValuesList();
+            List<Clothing> selectedValues = jList.getSelectedValuesList();
             for (Object o : selectedValues) {
                 System.out.println(o.toString());
             }
@@ -92,7 +92,7 @@ public class Cart extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Select items to delete.");
             for (int i : jList.getSelectedIndices()) {
                 if (model.getSize() > 0) {
-                    repo.removeFromCart((Clothing) model.get(i - counter));
+                    repo.removeFromCart(model.get(i - counter));
                     model.remove(i - counter);
                     counter++;
                 }
