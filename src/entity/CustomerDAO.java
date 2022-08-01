@@ -17,9 +17,7 @@ public class CustomerDAO {
 
     public boolean addCustomer(Customer c) {
         if (customers.contains(c)) return false;
-        for (Customer customer : customers) {
-            customer.setLogin(false);
-        }
+        logOut();
         customers.add(c);
         c.setLogin(true);
         return true;
@@ -56,5 +54,22 @@ public class CustomerDAO {
             }
         }
         return null;
+    }
+
+    public boolean logIn(String name, String password) {
+        logOut();
+        for (Customer c : customers) {
+            if (c.getName().equals(name) && c.getPassword().equals(password)) {
+                c.setLogin(true);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void logOut() {
+        for (Customer customer : customers) {
+            customer.setLogin(false);
+        }
     }
 }

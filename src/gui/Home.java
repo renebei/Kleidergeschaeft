@@ -58,7 +58,7 @@ public class Home extends JFrame implements ActionListener {
             dispose();
         } else if (source == profile) {
             if (new Repository().getHistory() == null) {
-                JOptionPane.showMessageDialog(null, "No user found. Make your first Purchase");
+                new Form(null);
             } else {
                 new Profile();
                 dispose();

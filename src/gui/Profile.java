@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 
 public class Profile extends JFrame implements ActionListener {
 
-    private JButton home, delete, checkout;
+    private JButton home, delete, logout;
     private JPanel panel;
     private JScrollPane pane;
     private JList jList;
@@ -47,17 +47,18 @@ public class Profile extends JFrame implements ActionListener {
         pane = new JScrollPane(jList);
         for (var entry : repo.getHistory().entrySet()) {
             StringBuilder sb = new StringBuilder();
-            sb.append(entry.getKey() +  "   |   " + entry.getValue() + "\n");
+            sb.append(entry.getKey() + "   |   " + entry.getValue() + "\n");
             model.addElement(sb.toString());
         }
     }
 
     private void initButtons() {
-        Icon homeIcon = new ImageIcon(new ImageIcon("res/home.png").getImage().getScaledInstance(60,60, Image.SCALE_DEFAULT));
+        Icon homeIcon = new ImageIcon(new ImageIcon("res/home.png").getImage().getScaledInstance(60, 60, Image.SCALE_DEFAULT));
 
-        checkout = new JButton(repo.getCurrentCustomer().getAddress());
-        checkout.setFont(new Font("Arial", Font.PLAIN, 20));
-        checkout.setPreferredSize(new Dimension(375, 50));
+        logout = new JButton(new ImageIcon("res/logout.png"));
+        logout.addActionListener(this);
+        logout.setFont(new Font("Arial", Font.PLAIN, 20));
+        logout.setPreferredSize(new Dimension(375, 50));
 
         delete = new JButton(repo.getCurrentCustomer().getName());
         delete.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -69,7 +70,7 @@ public class Profile extends JFrame implements ActionListener {
 
 
         panel.add(home, BorderLayout.NORTH);
-        panel.add(checkout, BorderLayout.EAST);
+        panel.add(logout, BorderLayout.EAST);
         panel.add(pane, BorderLayout.SOUTH);
         panel.add(delete, BorderLayout.WEST);
     }
@@ -77,7 +78,11 @@ public class Profile extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton source = (JButton) e.getSource();
-        if(source == home) {
+        if (source == home) {
+            new Home();
+            dispose();
+        } else if (source == logout) {
+            repo.getCurrentCustomer().setLogin(false);
             new Home();
             dispose();
         }

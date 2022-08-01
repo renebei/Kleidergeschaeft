@@ -62,4 +62,8 @@ public class Repository {
     public Map<Clothing, String> getHistory() {
         return customerDAO.getHistory();
     }
+
+    public boolean logInCustomer(String name, String password) {
+        return customerDAO.logIn(name, password);
+    }
 }
