@@ -87,7 +87,7 @@ public class Form extends JFrame {
     public void initTextForm() {
         //Name
         JLabel lblName = new JLabel("Name");
-        lblName.setBounds(65, 31, 46, 14);
+        lblName.setBounds(60, 31, 70, 14);
         this.getContentPane().add(lblName);
 
         textFieldName = new JTextField();
@@ -96,8 +96,8 @@ public class Form extends JFrame {
         textFieldName.setColumns(10);
 
         //Phone
-        JLabel lblPhone = new JLabel("Phone Number");
-        lblPhone.setBounds(65, 68, 46, 14);
+        JLabel lblPhone = new JLabel("Phone Nr.");
+        lblPhone.setBounds(60, 68, 70, 14);
         this.getContentPane().add(lblPhone);
 
         textFieldPhone = new JTextField();
@@ -106,8 +106,8 @@ public class Form extends JFrame {
         textFieldPhone.setColumns(10);
 
         //Email
-        JLabel lblEmailId = new JLabel("Email Id");
-        lblEmailId.setBounds(65, 115, 46, 14);
+        JLabel lblEmailId = new JLabel("Email");
+        lblEmailId.setBounds(60, 115, 70, 14);
         this.getContentPane().add(lblEmailId);
 
         textFieldMail = new JTextField();
@@ -117,7 +117,7 @@ public class Form extends JFrame {
 
         //Address
         JLabel lblAddress = new JLabel("Address");
-        lblAddress.setBounds(65, 162, 46, 14);
+        lblAddress.setBounds(60, 162, 70, 14);
         this.getContentPane().add(lblAddress);
 
         textAreaAddress = new JTextArea();
