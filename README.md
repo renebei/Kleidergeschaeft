@@ -1,6 +1,6 @@
 # OOAD René Beiermann, Maximilian Krebs
 
-##Java Doc
+## Java Doc
 - Steht in einer Klasse nur ein Author ist alles von dieser Person.
 - Stehen in einer Klasse zwei Authoren so ist der erste der Hauptbeteiligte.
 - Gleiches gilt für Methoden.
@@ -11,7 +11,7 @@
 - Sequenzdiagram(Bestellen, Stornieren..): Zu bearbeiten
 - Aktivitätsdiagram: Vollständigkeit prüfen.
 
-##Bericht (0/12)
+#### Bericht (0/12)
 1. Einleitung: René
 2. Grundlagen: René
 3. Anforderungsanalyse: Maximilian
