@@ -11,7 +11,7 @@
 - Sequenzdiagram(Bestellen, Stornieren..): Zu bearbeiten
 - Aktivitätsdiagram: Vollständigkeit prüfen.
 
-### Bericht (0/12)
+#### Bericht (0/12)
 1. Einleitung: René
 2. Grundlagen: René
 3. Anforderungsanalyse: Maximilian
