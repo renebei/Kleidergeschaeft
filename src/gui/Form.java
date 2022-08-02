@@ -12,19 +12,19 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
+
 /**
  * @author René Beiermann
  */
-public class Form extends JFrame {
+public class Form extends Activity {
 
     private JButton login, register;
-
-    private Repository repo;
 
     private Checkout parent;
 
 
     public Form(Checkout checkout) {
+        super(null);
         setVisible(true);
         this.setBounds(100, 100, 425, 320);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,24 +38,23 @@ public class Form extends JFrame {
 
     private void initButtons() {
         login = new JButton("Login");
+        login.addActionListener(this);
         add(login);
 
-        login.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new Login(parent);
-                dispose();
-            }
-        });
-
         register = new JButton("Register");
-        register.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new Register(parent);
-                dispose();
-            }
-        });
+        register.addActionListener(this);
         add(register);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JButton source = (JButton) e.getSource();
+        if (source == login) {
+            new Login(parent);
+            dispose();
+        } else if (source == register) {
+            new Register(parent);
+            dispose();
+        }
     }
 }

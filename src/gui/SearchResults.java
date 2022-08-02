@@ -14,7 +14,7 @@ import java.util.List;
  * @author René Beiermann
  */
 
-public class SearchResults extends JFrame implements ActionListener {
+public class SearchResults extends Activity {
 
     private JPanel panel2, panel1;
 
@@ -23,7 +23,6 @@ public class SearchResults extends JFrame implements ActionListener {
     private JButton back;
     private JButton backToMenue;
 
-    private Repository repo;
 
     public SearchResults(List<Clothing> results) {
         super("List");

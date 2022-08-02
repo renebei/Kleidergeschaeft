@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
  * @author René Beiermann
  */
 
-public class Home extends JFrame implements ActionListener {
+public class Home extends Activity {
 
     private JPanel panel;
     private JButton search, cart, profile;

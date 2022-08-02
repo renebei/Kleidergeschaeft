@@ -12,10 +12,11 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
+
 /**
  * @author René Beiermann
  */
-public class Register extends JFrame {
+public class Register extends Activity {
 
     private JTextField textFieldName;
     private JTextField textFieldPhone;
@@ -25,18 +26,16 @@ public class Register extends JFrame {
 
     private JButton clear, submit;
 
-    private Repository repo;
-
     private Checkout parent;
 
 
     public Register(Checkout checkout) {
+        super("Register");
         setVisible(true);
         this.setBounds(100, 100, 425, 320);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.getContentPane().setLayout(null);
 
-        repo = new Repository();
         parent = checkout;
 
         initTextForm();
@@ -52,44 +51,8 @@ public class Register extends JFrame {
         submit.setBounds(65, 225, 89, 23);
         this.getContentPane().add(submit);
 
-
-        submit.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                if (textFieldName.getText().isEmpty() || (textFieldPhone.getText().isEmpty()) || (textFieldMail.getText().isEmpty()) || (textAreaAddress.getText().isEmpty()))
-                    JOptionPane.showMessageDialog(null, "Data Missing");
-                else {
-                    try {
-                        String name = textFieldName.getText().replaceAll("\\s+", "");
-                        int phone = Integer.parseInt(textFieldPhone.getText().replaceAll("\\s+", ""));
-                        String mail = textFieldMail.getText().replaceAll("\\s+", "");
-                        String address = textAreaAddress.getText().replaceAll("\\s+", "");
-                        String password = textFieldPassword.getText().replaceAll("\\s+", "");
-                        if (repo.addCustomer(new Customer(name, address, phone, mail, password))) {
-                            JOptionPane.showMessageDialog(null, "Registered!");
-                            if (parent != null)
-                                parent.insertCurrentUser();
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Data existed in our system.");
-                            if (parent != null)
-                                parent.insertCurrentUser();
-                        }
-                    } catch (NumberFormatException e) {
-                        JOptionPane.showMessageDialog(null, "Data invalid");
-                    }
-                }
-                dispose();
-            }
-        });
-
-        clear.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                textFieldPhone.setText(null);
-                textFieldMail.setText(null);
-                textFieldName.setText(null);
-                textAreaAddress.setText(null);
-                textFieldPassword.setText(null);
-            }
-        });
+        submit.addActionListener(this);
+        clear.addActionListener(this);
     }
 
     public void initTextForm() {
@@ -140,5 +103,41 @@ public class Register extends JFrame {
         textFieldPassword = new JTextField();
         textFieldPassword.setBounds(126, 188, 250, 20);
         this.getContentPane().add(textFieldPassword);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JButton source = (JButton) e.getSource();
+        if (source == submit) {
+            if (textFieldName.getText().isEmpty() || (textFieldPhone.getText().isEmpty()) || (textFieldMail.getText().isEmpty()) || (textAreaAddress.getText().isEmpty()))
+                JOptionPane.showMessageDialog(null, "Data Missing");
+            else {
+                try {
+                    String name = textFieldName.getText().replaceAll("\\s+", "");
+                    int phone = Integer.parseInt(textFieldPhone.getText().replaceAll("\\s+", ""));
+                    String mail = textFieldMail.getText().replaceAll("\\s+", "");
+                    String address = textAreaAddress.getText().replaceAll("\\s+", "");
+                    String password = textFieldPassword.getText().replaceAll("\\s+", "");
+                    if (repo.addCustomer(new Customer(name, address, phone, mail, password))) {
+                        JOptionPane.showMessageDialog(null, "Registered!");
+                        if (parent != null)
+                            parent.insertCurrentUser();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Data existed in our system.");
+                        if (parent != null)
+                            parent.insertCurrentUser();
+                    }
+                } catch (NumberFormatException exc) {
+                    JOptionPane.showMessageDialog(null, "Data invalid");
+                }
+            }
+            dispose();
+        } else if (source == clear) {
+            textFieldPhone.setText(null);
+            textFieldMail.setText(null);
+            textFieldName.setText(null);
+            textAreaAddress.setText(null);
+            textFieldPassword.setText(null);
+        }
     }
 }

@@ -1,6 +1,5 @@
 package gui;
 
-import data.Repository;
 import entity.Clothing;
 
 import javax.swing.*;
@@ -10,13 +9,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class Cart extends JFrame implements ActionListener {
+public class Cart extends Activity {
     private JButton back, delete, checkout;
     private JPanel panel;
     private JScrollPane pane;
     private JList<Clothing> jList;
     private DefaultListModel<Clothing> model;
-    private Repository repo;
 
     public Cart() {
         super("Shopping Cart");
@@ -27,7 +25,6 @@ public class Cart extends JFrame implements ActionListener {
         add(panel);
         setVisible(true);
         setSize(750, 750);
-        repo = new Repository();
         init();
     }
 

@@ -11,24 +11,22 @@ import java.awt.event.ActionListener;
  * @author René Beiermann
  */
 
-public class Login extends JFrame {
+public class Login extends Activity {
     private JTextField textFieldName;
     private JTextField textFieldPassword;
 
     private JButton clear, submit;
 
-    private Repository repo;
-
     private Checkout parent;
 
 
     public Login(Checkout checkout) {
+        super("Login");
         setVisible(true);
         this.setBounds(100, 100, 425, 320);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.getContentPane().setLayout(null);
 
-        repo = new Repository();
         parent = checkout;
 
         initTextForm();
@@ -44,33 +42,8 @@ public class Login extends JFrame {
         submit.setBounds(65, 225, 89, 23);
         this.getContentPane().add(submit);
 
-
-        submit.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                if (textFieldName.getText().isEmpty() || textFieldPassword.getText().isEmpty())
-                    JOptionPane.showMessageDialog(null, "Data Missing");
-                else {
-                        String name = textFieldName.getText().replaceAll("\\s+", "");
-                        String password = textFieldPassword.getText().replaceAll("\\s+", "");
-                        if (repo.logInCustomer(name, password)) {
-                            JOptionPane.showMessageDialog(null, "Logged in!");
-                            if (parent != null)
-                                parent.insertCurrentUser();
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Does not exist!");
-                            dispose();
-                        }
-                }
-                dispose();
-            }
-        });
-
-        clear.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                textFieldName.setText(null);
-                textFieldPassword.setText(null);
-            }
-        });
+        submit.addActionListener(this);
+        clear.addActionListener(this);
     }
 
     public void initTextForm() {
@@ -90,5 +63,30 @@ public class Login extends JFrame {
         textFieldPassword = new JTextField();
         textFieldPassword.setBounds(128, 68, 250, 20);
         this.getContentPane().add(textFieldPassword);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JButton source = (JButton) e.getSource();
+        if (source == submit) {
+            if (textFieldName.getText().isEmpty() || textFieldPassword.getText().isEmpty())
+                JOptionPane.showMessageDialog(null, "Data Missing");
+            else {
+                String name = textFieldName.getText().replaceAll("\\s+", "");
+                String password = textFieldPassword.getText().replaceAll("\\s+", "");
+                if (repo.logInCustomer(name, password)) {
+                    JOptionPane.showMessageDialog(null, "Logged in!");
+                    if (parent != null)
+                        parent.insertCurrentUser();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Does not exist!");
+                    dispose();
+                }
+            }
+            dispose();
+        } else if (source == clear) {
+            textFieldName.setText(null);
+            textFieldPassword.setText(null);
+        }
     }
 }

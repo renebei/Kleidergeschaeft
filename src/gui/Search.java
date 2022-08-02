@@ -10,14 +10,13 @@ import java.awt.event.ActionListener;
  * @author René Beiermann
  */
 
-public class Search extends JFrame implements ActionListener {
+public class Search extends Activity {
     private entity.Type cType;
     private JButton tShirt, jeans, jacket, hoodie, home;
 
-
     private JPanel panel;
     private JTextField res;
-    private Repository repo;
+
 
 
     public Search() {
@@ -32,7 +31,6 @@ public class Search extends JFrame implements ActionListener {
         setSize(750, 750);
         res.setFont(new Font("Arial", Font.PLAIN, 40));
         res.setText("Enter Price Range");
-        repo = new Repository();
 
         initButtons();
         clearButtons();

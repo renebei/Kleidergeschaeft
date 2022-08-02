@@ -13,13 +13,13 @@ import java.util.List;
 /**
  * @author René Beiermann
  */
-public class Checkout extends JFrame implements ActionListener {
+public class Checkout extends Activity {
     private JPanel panel;
     private JButton home, cart, purchase, total;
     private JScrollPane pane;
     private JList jList;
     private DefaultListModel model;
-    private Repository repo;
+
 
     public Checkout() {
         super("Shopping Cart");
@@ -30,7 +30,6 @@ public class Checkout extends JFrame implements ActionListener {
         add(panel);
         setVisible(true);
         setSize(750, 750);
-        repo = new Repository();
         initList();
         initButtons();
     }

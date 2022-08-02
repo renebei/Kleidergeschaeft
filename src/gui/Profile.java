@@ -12,14 +12,13 @@ import java.awt.event.ActionListener;
  * @author René Beiermann
  */
 
-public class Profile extends JFrame implements ActionListener {
+public class Profile extends Activity {
 
     private JButton home, delete, logout;
     private JPanel panel;
     private JScrollPane pane;
     private JList jList;
     private DefaultListModel model;
-    private Repository repo;
 
     public Profile() {
         super("Profile");
@@ -30,7 +29,6 @@ public class Profile extends JFrame implements ActionListener {
         add(panel);
         setVisible(true);
         setSize(750, 750);
-        repo = new Repository();
         init();
     }
 
