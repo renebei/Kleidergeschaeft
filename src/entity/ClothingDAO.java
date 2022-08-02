@@ -7,7 +7,7 @@ import java.util.List;
  * @author René Beiermann
  */
 
-public class ClothingDAO {
+public class ClothingDAO implements DAO<Clothing> {
 
     private List<Clothing> testdata;
 
@@ -15,7 +15,21 @@ public class ClothingDAO {
         this.testdata = testdata;
     }
 
-    public boolean sell(Clothing clothing) {
+    /**
+     * @param clothing Kleidungsstück welches den Daten hinzugefuegt wird.
+     * @see DAO
+     */
+    @Override
+    public boolean save(Clothing clothing) {
+        return testdata.add(clothing);
+    }
+
+    /**
+     * @param clothing Kleidungsstück welches den Daten entfernt wird.
+     * @see DAO
+     */
+    @Override
+    public boolean delete(Clothing clothing) {
         for (Clothing c : testdata) {
             if (clothing.equals(c)) {
                 c.setQuantity(c.getQuantity() - 1);
@@ -25,6 +39,18 @@ public class ClothingDAO {
         return false;
     }
 
+    /**
+     * @see DAO
+     */
+    @Override
+    public List<Clothing> getAll() {
+        return testdata;
+    }
+
+    /**
+     * @param type Kleidungstück
+     * @return Liste der gefilterten Ergebnisse.
+     */
     public List<Clothing> search(Type type) {
         List<Clothing> temp = new ArrayList<>();
         for (Clothing c : testdata) {

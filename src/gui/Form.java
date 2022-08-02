@@ -1,127 +1,60 @@
 package gui;
 
 import data.Repository;
-import entity.Customer;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JButton;
+import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.JTextArea;
 
-public class Form extends JFrame {
+/**
+ * Pop Up welches zu Login oder Register führt.
+ *
+ * @author René Beiermann
+ */
+public class Form extends Activity {
 
-    private JTextField textFieldName;
-    private JTextField textFieldPhone;
-    private JTextField textFieldMail;
-
-    private JTextArea textAreaAddress;
-
-    private JButton clear, submit;
-
-    private Repository repo;
+    private JButton login, register;
 
     private Checkout parent;
 
 
     public Form(Checkout checkout) {
+        super(null);
         setVisible(true);
-        this.setBounds(100, 100, 425, 325);
+        this.setBounds(100, 100, 425, 320);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.getContentPane().setLayout(null);
+        setLayout(new GridLayout(1, 2));
 
         repo = new Repository();
         parent = checkout;
 
-        initTextForm();
         initButtons();
     }
 
     private void initButtons() {
-        clear = new JButton("Clear");
-        clear.setBounds(275, 225, 89, 23);
-        this.getContentPane().add(clear);
+        login = new JButton("Login");
+        login.addActionListener(this);
+        add(login);
 
-        submit = new JButton("Submit");
-        submit.setBounds(65, 225, 89, 23);
-        this.getContentPane().add(submit);
-
-
-        submit.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                if (textFieldName.getText().isEmpty() || (textFieldPhone.getText().isEmpty()) || (textFieldMail.getText().isEmpty()) || (textAreaAddress.getText().isEmpty()))
-                    JOptionPane.showMessageDialog(null, "Data Missing");
-                else {
-                    try {
-                        String name = textFieldName.getText();
-                        int phone = Integer.parseInt(textFieldPhone.getText());
-                        String mail = textFieldMail.getText();
-                        String address = textAreaAddress.getText();
-                        if (repo.addCustomer(new Customer(name, address, phone, mail))) {
-                           parent.insertCurrentUser();
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Data existed in our system.");
-                        }
-                    } catch (NumberFormatException e) {
-                        JOptionPane.showMessageDialog(null, "Data invalid");
-                    }
-                }
-                dispose();
-            }
-        });
-
-        clear.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                textFieldPhone.setText(null);
-                textFieldMail.setText(null);
-                textFieldName.setText(null);
-                textAreaAddress.setText(null);
-            }
-        });
+        register = new JButton("Register");
+        register.addActionListener(this);
+        add(register);
     }
 
-    public void initTextForm() {
-        //Name
-        JLabel lblName = new JLabel("Name");
-        lblName.setBounds(60, 31, 70, 14);
-        this.getContentPane().add(lblName);
-
-        textFieldName = new JTextField();
-        textFieldName.setBounds(128, 28, 250, 20);
-        this.getContentPane().add(textFieldName);
-        textFieldName.setColumns(10);
-
-        //Phone
-        JLabel lblPhone = new JLabel("Phone Nr.");
-        lblPhone.setBounds(60, 68, 70, 14);
-        this.getContentPane().add(lblPhone);
-
-        textFieldPhone = new JTextField();
-        textFieldPhone.setBounds(128, 65, 250, 20);
-        this.getContentPane().add(textFieldPhone);
-        textFieldPhone.setColumns(10);
-
-        //Email
-        JLabel lblEmailId = new JLabel("Email");
-        lblEmailId.setBounds(60, 115, 70, 14);
-        this.getContentPane().add(lblEmailId);
-
-        textFieldMail = new JTextField();
-        textFieldMail.setBounds(128, 112, 250, 17);
-        this.getContentPane().add(textFieldMail);
-        textFieldMail.setColumns(10);
-
-        //Address
-        JLabel lblAddress = new JLabel("Address");
-        lblAddress.setBounds(60, 162, 70, 14);
-        this.getContentPane().add(lblAddress);
-
-        textAreaAddress = new JTextArea();
-        textAreaAddress.setBounds(126, 157, 250, 40);
-        this.getContentPane().add(textAreaAddress);
+    /**
+     * @see Login
+     * @see Register
+     * @see Activity
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JButton source = (JButton) e.getSource();
+        if (source == login) {
+            new Login(parent);
+            dispose();
+        } else if (source == register) {
+            new Register(parent);
+            dispose();
+        }
     }
 }

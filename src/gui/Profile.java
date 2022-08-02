@@ -1,25 +1,23 @@
 package gui;
 
-import data.Repository;
-
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
+ * Profil des Nutzer
+ *
  * @author René Beiermann
  */
 
-public class Profile extends JFrame implements ActionListener {
+public class Profile extends Activity {
 
-    private JButton home, delete, checkout;
+    private JButton home, delete, logout;
     private JPanel panel;
     private JScrollPane pane;
     private JList jList;
     private DefaultListModel model;
-    private Repository repo;
 
     public Profile() {
         super("Profile");
@@ -30,7 +28,6 @@ public class Profile extends JFrame implements ActionListener {
         add(panel);
         setVisible(true);
         setSize(750, 750);
-        repo = new Repository();
         init();
     }
 
@@ -39,6 +36,11 @@ public class Profile extends JFrame implements ActionListener {
         initButtons();
     }
 
+    /**
+     * Füllt Profil mit einer Liste der zuletzt bestellten Kleider.
+     *
+     * @see entity.Customer
+     */
     private void initList() {
         jList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         jList.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -47,17 +49,18 @@ public class Profile extends JFrame implements ActionListener {
         pane = new JScrollPane(jList);
         for (var entry : repo.getHistory().entrySet()) {
             StringBuilder sb = new StringBuilder();
-            sb.append(entry.getKey() +  "   |   " + entry.getValue() + "\n");
+            sb.append(entry.getKey() + "   |   " + entry.getValue() + "\n");
             model.addElement(sb.toString());
         }
     }
 
     private void initButtons() {
-        Icon homeIcon = new ImageIcon(new ImageIcon("res/home.png").getImage().getScaledInstance(60,60, Image.SCALE_DEFAULT));
+        Icon homeIcon = new ImageIcon(new ImageIcon("res/home.png").getImage().getScaledInstance(60, 60, Image.SCALE_DEFAULT));
 
-        checkout = new JButton(repo.getCurrentCustomer().getAddress());
-        checkout.setFont(new Font("Arial", Font.PLAIN, 20));
-        checkout.setPreferredSize(new Dimension(375, 50));
+        logout = new JButton(new ImageIcon("res/logout.png"));
+        logout.addActionListener(this);
+        logout.setFont(new Font("Arial", Font.PLAIN, 20));
+        logout.setPreferredSize(new Dimension(375, 50));
 
         delete = new JButton(repo.getCurrentCustomer().getName());
         delete.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -69,15 +72,26 @@ public class Profile extends JFrame implements ActionListener {
 
 
         panel.add(home, BorderLayout.NORTH);
-        panel.add(checkout, BorderLayout.EAST);
+        panel.add(logout, BorderLayout.EAST);
         panel.add(pane, BorderLayout.SOUTH);
         panel.add(delete, BorderLayout.WEST);
     }
 
+    /**
+     * {@link #home} Hauptmenue.
+     * {@link #logout} Meldet angemeldeten Nutzer ab.
+     *
+     * @see Home
+     * @see Activity
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton source = (JButton) e.getSource();
-        if(source == home) {
+        if (source == home) {
+            new Home();
+            dispose();
+        } else if (source == logout) {
+            repo.getCurrentCustomer().setLogin(false);
             new Home();
             dispose();
         }

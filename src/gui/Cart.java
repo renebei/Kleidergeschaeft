@@ -1,22 +1,24 @@
 package gui;
 
-import data.Repository;
 import entity.Clothing;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
 
-public class Cart extends JFrame implements ActionListener {
+/**
+ * Warenkorb GUI
+ *
+ * @author Maximilian Krebs
+ */
+public class Cart extends Activity {
     private JButton back, delete, checkout;
     private JPanel panel;
     private JScrollPane pane;
     private JList<Clothing> jList;
     private DefaultListModel<Clothing> model;
-    private Repository repo;
 
     public Cart() {
         super("Shopping Cart");
@@ -27,7 +29,6 @@ public class Cart extends JFrame implements ActionListener {
         add(panel);
         setVisible(true);
         setSize(750, 750);
-        repo = new Repository();
         init();
     }
 
@@ -36,6 +37,9 @@ public class Cart extends JFrame implements ActionListener {
         initButtons();
     }
 
+    /**
+     * Initialisiert die Liste die den Inhalt des Warenkorb listet.
+     */
     private void initList() {
         jList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         jList.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -47,6 +51,9 @@ public class Cart extends JFrame implements ActionListener {
         }
     }
 
+    /**
+     * Initialisiert die Knöpfe und weißt Ihnen die passenden Bilder zu.
+     */
     private void initButtons() {
         Icon homeIcon = new ImageIcon(new ImageIcon("res/home.png").getImage().getScaledInstance(60, 60, Image.SCALE_DEFAULT));
         Icon deleteIcon = new ImageIcon(new ImageIcon("res/delete.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT));
@@ -67,13 +74,19 @@ public class Cart extends JFrame implements ActionListener {
         back.addActionListener(this);
         back.setPreferredSize(new Dimension(375, 100));
 
-
         panel.add(back, BorderLayout.SOUTH);
         panel.add(checkout, BorderLayout.EAST);
         panel.add(pane, BorderLayout.NORTH);
         panel.add(delete, BorderLayout.WEST);
     }
 
+    /**
+     * {@link #checkout} Leitet Nutzer zu der Oberflaeche wo er bestellt.
+     * {@link #delete} Löscht Eintrag aus Warenkorb.
+     * {@link #back} Bringt Nutzer ins Hauptmenue.
+     *
+     * @see Activity
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == back) {

@@ -1,7 +1,8 @@
 package entity;
 
-import java.time.LocalDateTime;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * @author René Beiermann
@@ -13,17 +14,21 @@ public class Customer {
     private String address;
     private String eMail;
     private boolean loggedIn;
+    private String password;
 
     private Map<Clothing, String> purchaseHistory;
 
 
-    public Customer(String name, String address, int phoneNr, String eMail) {
+    public Customer(String name, String address, int phoneNr, String eMail, String password) {
         this.name = name;
         this.address = address;
         this.phoneNr = phoneNr;
         this.eMail = eMail;
         this.loggedIn = false;
+        this.password = password;
+
         purchaseHistory = new HashMap<>();
+
     }
 
     public String toString() {
@@ -74,8 +79,24 @@ public class Customer {
         this.loggedIn = b;
     }
 
-
     public Map<Clothing, String> getPurchaseHistory() {
         return purchaseHistory;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return Objects.equals(name, customer.name) && Objects.equals(eMail, customer.eMail);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, phoneNr, address, eMail, loggedIn, password, purchaseHistory);
     }
 }

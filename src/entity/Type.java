@@ -1,6 +1,8 @@
 package entity;
 
 /**
+ * Aufzaehlung der Kleidungsarten die Verkauft werden.
+ *
  * @author René Beiermann
  */
 

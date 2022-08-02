@@ -5,13 +5,14 @@ import data.Repository;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
+ * Hauptmenue
+ *
  * @author René Beiermann
  */
 
-public class Home extends JFrame implements ActionListener {
+public class Home extends Activity {
 
     private JPanel panel;
     private JButton search, cart, profile;
@@ -47,6 +48,16 @@ public class Home extends JFrame implements ActionListener {
         this.panel.add(cart);
     }
 
+    /**
+     * {@link #search} Fuehrt zu Shopkatalog.
+     * {@link #cart} Fuehrt zu Warenkorb.
+     * {@link #profile} Prueft ob eingeloggt. Wenn ja zum Profile wenn nein einloggen.
+     *
+     * @see Activity
+     * @see Form
+     * @see Search
+     * @see Profile
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton source = (JButton) e.getSource();
@@ -58,7 +69,7 @@ public class Home extends JFrame implements ActionListener {
             dispose();
         } else if (source == profile) {
             if (new Repository().getHistory() == null) {
-                JOptionPane.showMessageDialog(null, "No user found. Make your first Purchase");
+                new Form(null);
             } else {
                 new Profile();
                 dispose();
