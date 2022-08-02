@@ -1,13 +1,11 @@
 package gui;
 
-import data.Repository;
-import entity.Customer;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
+ * Login Page.
+ *
  * @author René Beiermann
  */
 
@@ -33,6 +31,9 @@ public class Login extends Activity {
         initButtons();
     }
 
+    /**
+     * Initialisiert Buttons
+     */
     private void initButtons() {
         clear = new JButton("Clear");
         clear.setBounds(275, 225, 89, 23);
@@ -46,6 +47,9 @@ public class Login extends Activity {
         clear.addActionListener(this);
     }
 
+    /**
+     * Füllt Pop Up mit Name, Passwort
+     */
     public void initTextForm() {
         JLabel lblName = new JLabel("Username");
         lblName.setBounds(60, 28, 70, 14);
@@ -65,6 +69,12 @@ public class Login extends Activity {
         this.getContentPane().add(textFieldPassword);
     }
 
+    /**
+     * {@link #submit} Ließt Daten aus Textfeld und ueberprueft diese.
+     * {@link #clear} Loescht Inhalt aus Textfeld.
+     *
+     * @see Activity
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton source = (JButton) e.getSource();

@@ -5,9 +5,10 @@ import data.Repository;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
+ * Hauptmenue
+ *
  * @author René Beiermann
  */
 
@@ -47,6 +48,16 @@ public class Home extends Activity {
         this.panel.add(cart);
     }
 
+    /**
+     * {@link #search} Fuehrt zu Shopkatalog.
+     * {@link #cart} Fuehrt zu Warenkorb.
+     * {@link #profile} Prueft ob eingeloggt. Wenn ja zum Profile wenn nein einloggen.
+     *
+     * @see Activity
+     * @see Form
+     * @see Search
+     * @see Profile
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton source = (JButton) e.getSource();

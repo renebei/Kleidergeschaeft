@@ -8,14 +8,27 @@ import java.util.Map;
 /**
  * @author René Beiermann
  */
-public class CustomerDAO {
+public class CustomerDAO implements DAO<Customer> {
     private List<Customer> customers;
 
     public CustomerDAO(List<Customer> customers) {
         this.customers = customers;
     }
 
-    public boolean addCustomer(Customer c) {
+    /**
+     * @see DAO
+     */
+    @Override
+    public List<Customer> getAll() {
+        return customers;
+    }
+
+    /**
+     * @param c Kunde
+     * @see DAO
+     */
+    @Override
+    public boolean save(Customer c) {
         if (customers.contains(c)) return false;
         logOut();
         customers.add(c);
@@ -23,10 +36,20 @@ public class CustomerDAO {
         return true;
     }
 
-    public void removeCustomer(Customer c) {
-        customers.remove(c);
+    /**
+     * @param c Kunde
+     * @see DAO
+     */
+    @Override
+    public boolean delete(Customer c) {
+        return customers.remove(c);
     }
 
+    /**
+     * Sucht den aktuell eingeloggten Benutzer.
+     *
+     * @return Benutzer mit loggedIn = true.
+     */
     public Customer getCurrent() {
         for (Customer c : customers) {
             if (c.getLogIn()) return c;
@@ -34,6 +57,11 @@ public class CustomerDAO {
         return null;
     }
 
+    /**
+     * Fügt gekaufte Objekte der Bestellhistorie zu.
+     *
+     * @param clothing Liste von gekauften Kleidungsstücken.
+     */
     public void addToHistory(Clothing... clothing) {
         for (Customer c : customers) {
             if (c.getLogIn()) {
@@ -47,6 +75,9 @@ public class CustomerDAO {
         }
     }
 
+    /**
+     * @return Bestellhistorie des eingeloggten Nutzer.
+     */
     public Map<Clothing, String> getHistory() {
         for (Customer c : customers) {
             if (c.getLogIn()) {
@@ -56,6 +87,13 @@ public class CustomerDAO {
         return null;
     }
 
+    /**
+     * Meldet Nutzer an
+     *
+     * @param name     Name des Kunden
+     * @param password Passwort des Kunden
+     * @return Anmelden erfolgreich oder Daten falsch/nicht vorhanden.
+     */
     public boolean logIn(String name, String password) {
         logOut();
         for (Customer c : customers) {
@@ -67,6 +105,9 @@ public class CustomerDAO {
         return false;
     }
 
+    /**
+     * Meldet Nutzer ab
+     */
     public void logOut() {
         for (Customer customer : customers) {
             customer.setLogin(false);

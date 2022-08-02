@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Klasse nach Singelton pattern. Verwaltet die zu kaufenden Kleidungsstücke.
+ *
  * @author René Beiermann
  */
 
@@ -17,6 +19,11 @@ class ShoppingCart {
         cart = new ArrayList<>();
     }
 
+    /**
+     * Diese Methode implementiert das Singelton pattern.
+     *
+     * @return das Singelton.
+     */
     public static ShoppingCart getInstance() {
         if (shoppingCart == null) {
             shoppingCart = new ShoppingCart();
@@ -34,13 +41,5 @@ class ShoppingCart {
 
     public List<Clothing> getCart() {
         return cart;
-    }
-
-    public int calcTotal() {
-        int total = 0;
-        for (Clothing c : cart) {
-            total += c.getCost();
-        }
-        return total;
     }
 }

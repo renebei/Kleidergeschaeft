@@ -1,14 +1,17 @@
 package data;
 
 import entity.Clothing;
-import entity.Type;
 import entity.Size;
+import entity.Type;
 
 import java.awt.*;
-import java.util.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
+ * Klasse nach Singelton pattern.
+ *
  * @author René Beiermann
  */
 
@@ -17,10 +20,16 @@ class Testdata {
     private static List<Clothing> data;
     private static Testdata database;
 
-    private Testdata() {}
+    private Testdata() {
+    }
 
+    /**
+     * Generiert Kleidungsstücke mit zufaelliger Farbe, Groesse & Stueckzahl
+     *
+     * @return das Singelton.
+     */
     public static Testdata generate() {
-        if(database == null) {
+        if (database == null) {
             database = new Testdata();
             data = new ArrayList<>();
             Color[] colors = {Color.BLACK, Color.BLUE, Color.CYAN, Color.GREEN, Color.MAGENTA, Color.ORANGE};

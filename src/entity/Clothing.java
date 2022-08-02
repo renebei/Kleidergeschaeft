@@ -5,6 +5,8 @@ import java.awt.*;
 import java.util.Random;
 
 /**
+ * Kleidungsstück.
+ *
  * @author René Beiermann
  */
 
@@ -24,6 +26,31 @@ public class Clothing {
         this.quantity = quantity;
         this.cost = new Random().nextInt(100) + 15; //Inflation
         colorInfos();
+    }
+
+    /**
+     * Generiert String für den Pfad des passenden Bild.
+     *
+     * @author René Beiermann
+     */
+    private void colorInfos() {
+        StringBuilder sb = new StringBuilder("res/");
+        sb.append(type.toString());
+        sb.append("/");
+        if (color.equals(Color.BLACK)) {
+            sb.append("black.png");
+        } else if (color.equals(Color.BLUE)) {
+            sb.append("blue.png");
+        } else if (color.equals(Color.GREEN)) {
+            sb.append("green.png");
+        } else if (color.equals(Color.CYAN)) {
+            sb.append("cyan.png");
+        } else if (color.equals(Color.MAGENTA)) {
+            sb.append("magenta.png");
+        } else if (color.equals(Color.ORANGE)) {
+            sb.append("orange.png");
+        }
+        icon = new ImageIcon(sb.toString());
     }
 
     public Size getSize() {
@@ -68,29 +95,11 @@ public class Clothing {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(type.toString()+ " - ");
+        sb.append(type.toString() + " - ");
         sb.append(size.toString() + " - ");
         sb.append(cost + " Euro");
         return sb.toString();
     }
 
-    private void colorInfos() {
-        StringBuilder sb = new StringBuilder("res/");
-        sb.append(type.toString());
-        sb.append("/");
-        if (color.equals(Color.BLACK)) {
-            sb.append("black.png");
-        } else if (color.equals(Color.BLUE)) {
-            sb.append("blue.png");
-        } else if (color.equals(Color.GREEN)) {
-            sb.append("green.png");
-        } else if (color.equals(Color.CYAN)) {
-            sb.append("cyan.png");
-        } else if (color.equals(Color.MAGENTA)) {
-            sb.append("magenta.png");
-        } else if (color.equals(Color.ORANGE)) {
-            sb.append("orange.png");
-        }
-        icon = new ImageIcon(sb.toString());
-    }
+
 }

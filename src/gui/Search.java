@@ -1,13 +1,13 @@
 package gui;
 
-import data.Repository;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 /**
- * @author René Beiermann
+ * Suchmoeglichtkeit fuer Kleider im Shopkatalog
+ *
+ * @author René Beiermann, Maximilian Krebs
  */
 
 public class Search extends Activity {
@@ -16,7 +16,6 @@ public class Search extends Activity {
 
     private JPanel panel;
     private JTextField res;
-
 
 
     public Search() {
@@ -36,6 +35,16 @@ public class Search extends Activity {
         clearButtons();
     }
 
+    /**
+     * {@link #res} Filter fues Preis.
+     * {@link #tShirt} Filter fuer T-Shirts.
+     * {@link #jeans} Filter fuer Jeans.
+     * {@link #jacket} Filter fuer Jacken.
+     * {@link #hoodie} Filter fuer Hoodies.
+     *
+     * @see Activity
+     * @see Home
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton source = (JButton) e.getSource();
@@ -49,7 +58,7 @@ public class Search extends Activity {
             cType = entity.Type.Jacket;
         } else if (source == hoodie) {
             cType = entity.Type.Hoodie;
-        } else if (source == home){
+        } else if (source == home) {
             new Home();
             dispose();
         }
@@ -64,6 +73,9 @@ public class Search extends Activity {
         dispose();
     }
 
+    /**
+     * Weißt den Knoepfen die korrekten Bilder zu.
+     */
     private void initButtons() {
         Icon homeIcon = new ImageIcon(new ImageIcon("res/home.png").getImage().getScaledInstance(60, 60, Image.SCALE_DEFAULT));
         Icon tshirtIcon = new ImageIcon("res/Tshirt.png");

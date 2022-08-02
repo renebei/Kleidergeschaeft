@@ -1,19 +1,14 @@
 package gui;
 
 import data.Repository;
-import entity.Customer;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JButton;
+import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.JTextArea;
 
 /**
+ * Pop Up welches zu Login oder Register führt.
+ *
  * @author René Beiermann
  */
 public class Form extends Activity {
@@ -46,6 +41,11 @@ public class Form extends Activity {
         add(register);
     }
 
+    /**
+     * @see Login
+     * @see Register
+     * @see Activity
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton source = (JButton) e.getSource();

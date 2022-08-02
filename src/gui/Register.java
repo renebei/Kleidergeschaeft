@@ -1,19 +1,13 @@
 package gui;
 
-import data.Repository;
 import entity.Customer;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JButton;
-import java.awt.*;
-import java.awt.event.ActionListener;
+import javax.swing.*;
 import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.JTextArea;
 
 /**
+ * Registiert Nutzer
+ *
  * @author René Beiermann
  */
 public class Register extends Activity {
@@ -55,6 +49,9 @@ public class Register extends Activity {
         clear.addActionListener(this);
     }
 
+    /**
+     * Fuellt Pop Up mit Name, Telefonnummer, E-Mail, Adresse & Passwort Textfeldern
+     */
     public void initTextForm() {
         //Name
         JLabel lblName = new JLabel("Username");
@@ -105,6 +102,12 @@ public class Register extends Activity {
         this.getContentPane().add(textFieldPassword);
     }
 
+    /**
+     * {@link #submit} Ließt Daten aus Textfeld und ueberprueft diese.
+     * {@link #clear} Loescht Inhalt aus Textfeld.
+     *
+     * @see Activity
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton source = (JButton) e.getSource();

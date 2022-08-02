@@ -1,14 +1,11 @@
 package gui;
 
-import data.Repository;
 import entity.Clothing;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.List;
 
 /**
  * @author René Beiermann
@@ -34,6 +31,9 @@ public class Checkout extends Activity {
         initButtons();
     }
 
+    /**
+     * Initialisiert die Knöpfe und weißt Ihnen die passenden Bilder zu.
+     */
     private void initButtons() {
         Icon homeIcon = new ImageIcon(new ImageIcon("res/home.png").getImage().getScaledInstance(60, 60, Image.SCALE_DEFAULT));
         Icon checkoutIcon = new ImageIcon(new ImageIcon("res/money.png").getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT));
@@ -76,6 +76,14 @@ public class Checkout extends Activity {
         }
     }
 
+    /**
+     * {@link #purchase} Verändert Daten im System. Nutzer kauft Warenkorbinhalt. Ist der Nutzer nicht angemeldet öffnet sich Pop Up.
+     * {@link #cart} Zurück zum Warenkorb.
+     * {@link #home} Bringt Nutzer ins Hauptmenue.
+     *
+     * @see Form
+     * @see Activity
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton source = (JButton) e.getSource();
@@ -96,6 +104,9 @@ public class Checkout extends Activity {
         }
     }
 
+    /**
+     * Zeigt Nutzer an nachdem er sich erfolgreich angemeldet hat.
+     */
     public void insertCurrentUser() {
         model.addElement("\n");
         model.addElement("Deliver to: ");

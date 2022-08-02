@@ -1,6 +1,8 @@
 package entity;
 
 /**
+ * Aufzaehlung der Kleidergroessen.
+ *
  * @author René Beiermann
  */
 

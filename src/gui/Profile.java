@@ -1,14 +1,13 @@
 package gui;
 
-import data.Repository;
-
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
+ * Profil des Nutzer
+ *
  * @author René Beiermann
  */
 
@@ -37,6 +36,11 @@ public class Profile extends Activity {
         initButtons();
     }
 
+    /**
+     * Füllt Profil mit einer Liste der zuletzt bestellten Kleider.
+     *
+     * @see entity.Customer
+     */
     private void initList() {
         jList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         jList.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -73,6 +77,13 @@ public class Profile extends Activity {
         panel.add(delete, BorderLayout.WEST);
     }
 
+    /**
+     * {@link #home} Hauptmenue.
+     * {@link #logout} Meldet angemeldeten Nutzer ab.
+     *
+     * @see Home
+     * @see Activity
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton source = (JButton) e.getSource();

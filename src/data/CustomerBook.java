@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Klasse nach Singelton pattern.
+ *
  * @author René Beiermann
  */
 class CustomerBook {
@@ -17,6 +19,11 @@ class CustomerBook {
         customers = new ArrayList<>();
     }
 
+    /**
+     * Diese Methode implementiert das Singelton pattern.
+     *
+     * @return das Singelton.
+     */
     public static CustomerBook getInstance() {
         if (customerBook == null) {
             customerBook = new CustomerBook();
