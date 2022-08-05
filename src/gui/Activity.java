@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 /**
  * Beinhaltet wichtige Bestandteile aller GUI Objekte.
  *
- * @author René Beiermann, Maximilian Krebs
+ * @author Rene Beiermann, Maximilian Krebs
  */
 public abstract class Activity extends JFrame implements ActionListener {
     /**
@@ -18,7 +18,7 @@ public abstract class Activity extends JFrame implements ActionListener {
     protected Repository repo;
 
     /**
-     * @param name Für den Kontruktor von JFrame. Regelt den Namen des Fenster.
+     * @param name Fuer den Kontruktor von JFrame.
      */
     public Activity(String name) {
         super(name);
@@ -28,7 +28,7 @@ public abstract class Activity extends JFrame implements ActionListener {
     /**
      * Verwaltet welche Logik ausgeführt wird bei dem Event "e"
      *
-     * @param e das gedrückte ActionEvent. Beispielsweise JButton
+     * @param e das gedrueckte ActionEvent. Beispielsweise JButton
      */
     @Override
     public void actionPerformed(ActionEvent e) {

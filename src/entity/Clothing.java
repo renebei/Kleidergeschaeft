@@ -16,7 +16,7 @@ public class Clothing {
     private Type type;
     private Color color;
     private int quantity;
-    private int cost;
+    private int price;
     private Icon icon;
 
     public Clothing(Size size, Type type, Color color, int quantity) {
@@ -24,7 +24,7 @@ public class Clothing {
         this.type = type;
         this.color = color;
         this.quantity = quantity;
-        this.cost = new Random().nextInt(100) + 15; //Inflation
+        this.price = new Random().nextInt(100) + 15; //Inflation
         colorInfos();
     }
 
@@ -89,15 +89,15 @@ public class Clothing {
         this.quantity = quantity;
     }
 
-    public int getCost() {
-        return cost;
+    public int getPrice() {
+        return price;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(type.toString() + " - ");
         sb.append(size.toString() + " - ");
-        sb.append(cost + " Euro");
+        sb.append(price + " Euro");
         return sb.toString();
     }
 

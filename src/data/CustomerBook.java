@@ -28,7 +28,7 @@ class CustomerBook {
         if (customerBook == null) {
             customerBook = new CustomerBook();
             customerBook.getCustomers().add(new Customer("Max234", "Musterweg", 12345, "maxEmail", "password1"));
-            customerBook.getCustomers().add(new Customer("BabaraBeispiel", "Beispielweg", 12345, "babaraEmail", "password2"));
+            customerBook.getCustomers().add(new Customer("Babara Beispiel", "Beispielweg", 12345, "babaraEmail", "password2"));
         }
         return customerBook;
     }

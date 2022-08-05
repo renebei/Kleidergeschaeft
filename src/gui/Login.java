@@ -82,7 +82,7 @@ public class Login extends Activity {
             if (textFieldName.getText().isEmpty() || textFieldPassword.getText().isEmpty())
                 JOptionPane.showMessageDialog(null, "Data Missing");
             else {
-                String name = textFieldName.getText().replaceAll("\\s+", "");
+                String name = textFieldName.getText();
                 String password = textFieldPassword.getText().replaceAll("\\s+", "");
                 if (repo.logInCustomer(name, password)) {
                     JOptionPane.showMessageDialog(null, "Logged in!");

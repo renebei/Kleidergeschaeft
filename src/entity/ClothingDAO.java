@@ -62,7 +62,7 @@ public class ClothingDAO implements DAO<Clothing> {
     public List<Clothing> search(Type type, int cost) {
         List<Clothing> temp = new ArrayList<>();
         for (Clothing c : testdata) {
-            if (c.getType().equals(type) && c.getCost() <= cost) temp.add(c);
+            if (c.getType().equals(type) && c.getPrice() <= cost) temp.add(c);
         }
         return temp;
     }

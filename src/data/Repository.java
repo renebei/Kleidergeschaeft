@@ -70,7 +70,7 @@ public class Repository {
     public int calcTotal() {
         int total = 0;
         for (Clothing c : shoppingCart.getCart()) {
-            total += c.getCost();
+            total += c.getPrice();
         }
         return total;
     }

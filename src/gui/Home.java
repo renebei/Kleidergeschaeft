@@ -20,12 +20,10 @@ public class Home extends Activity {
     public Home() {
         super("Home");
         panel = new JPanel();
-        setLayout(new BorderLayout());
         panel.setLayout(new GridLayout(3, 1));
-        add(panel, BorderLayout.CENTER);
+        add(panel);
         setVisible(true);
         setSize(750, 750);
-
         initButtons();
         panel.validate();
 

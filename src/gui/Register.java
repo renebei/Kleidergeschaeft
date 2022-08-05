@@ -116,7 +116,7 @@ public class Register extends Activity {
                 JOptionPane.showMessageDialog(null, "Data Missing");
             else {
                 try {
-                    String name = textFieldName.getText().replaceAll("\\s+", "");
+                    String name = textFieldName.getText();
                     int phone = Integer.parseInt(textFieldPhone.getText().replaceAll("\\s+", ""));
                     String mail = textFieldMail.getText().replaceAll("\\s+", "");
                     String address = textAreaAddress.getText().replaceAll("\\s+", "");
