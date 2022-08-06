@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 /**
  * Registiert Nutzer
  *
- * @author René Beiermann
+ * @author Rene Beiermann
  */
 public class Register extends Activity {
 

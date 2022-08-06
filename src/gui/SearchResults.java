@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Gefilterter Shopkatalog.
  *
- * @author René Beiermann, Maximimilian Krebs
+ * @author Rene Beiermann, Maximimilian Krebs
  */
 
 public class SearchResults extends Activity {

@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Klasse nach Singelton pattern. Verwaltet die zu kaufenden Kleidungsstücke.
  *
- * @author René Beiermann
+ * @author Rene Beiermann
  */
 
 class ShoppingCart {

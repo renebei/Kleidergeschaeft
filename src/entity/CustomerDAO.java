@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author René Beiermann
+ * @author Rene Beiermann
  */
 public class CustomerDAO implements DAO<Customer> {
     private List<Customer> customers;

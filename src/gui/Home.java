@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 /**
  * Hauptmenue
  *
- * @author René Beiermann
+ * @author Rene Beiermann
  */
 
 public class Home extends Activity {

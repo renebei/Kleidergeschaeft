@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 /**
  * Pop Up welches zu Login oder Register führt.
  *
- * @author René Beiermann
+ * @author Rene Beiermann
  */
 public class Form extends Activity {
 

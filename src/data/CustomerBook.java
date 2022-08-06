@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Klasse nach Singelton pattern.
  *
- * @author René Beiermann
+ * @author Rene Beiermann
  */
 class CustomerBook {
 

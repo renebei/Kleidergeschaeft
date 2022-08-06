@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 /**
  * Login Page.
  *
- * @author René Beiermann
+ * @author Rene Beiermann
  */
 
 public class Login extends Activity {

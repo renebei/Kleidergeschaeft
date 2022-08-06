@@ -8,7 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 /**
- * @author René Beiermann
+ * @author Rene Beiermann
  */
 public class Checkout extends Activity {
     private JPanel panel;

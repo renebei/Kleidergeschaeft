@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * Kleidungsstück.
  *
- * @author René Beiermann
+ * @author Rene Beiermann
  */
 
 public class Clothing {
@@ -31,7 +31,7 @@ public class Clothing {
     /**
      * Generiert String für den Pfad des passenden Bild.
      *
-     * @author René Beiermann
+     * @author Rene Beiermann
      */
     private void colorInfos() {
         StringBuilder sb = new StringBuilder("res/");

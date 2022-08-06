@@ -65,7 +65,7 @@ public class Repository {
      * Errechnet den Inhalt des Warenkorb in Euro
      *
      * @return Gesamtsumme
-     * @author René Beiermann
+     * @author Rene Beiermann
      */
     public int calcTotal() {
         int total = 0;
@@ -77,7 +77,7 @@ public class Repository {
 
     /**
      * @param clothing Liste von Kleidungsstücken die gekauft werden.
-     * @author René Beiermann
+     * @author Rene Beiermann
      */
     public void purchase(Clothing... clothing) {
         shoppingCart.getCart().clear();

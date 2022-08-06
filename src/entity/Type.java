@@ -3,7 +3,7 @@ package entity;
 /**
  * Aufzaehlung der Kleidungsarten die Verkauft werden.
  *
- * @author René Beiermann
+ * @author Rene Beiermann
  */
 
 public enum Type {

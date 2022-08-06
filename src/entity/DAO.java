@@ -6,7 +6,7 @@ import java.util.List;
  * Interface welches das Minimum eines Objektes vorgibt mit dem Daten bearbeitet werden.
  *
  * @param <T> Typ des zu bearbeitenden Objekt.
- * @author René Beiermann
+ * @author Rene Beiermann
  */
 public interface DAO<T> {
 

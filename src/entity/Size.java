@@ -3,7 +3,7 @@ package entity;
 /**
  * Aufzaehlung der Kleidergroessen.
  *
- * @author René Beiermann
+ * @author Rene Beiermann
  */
 
 public enum Size {

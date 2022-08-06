@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * @author René Beiermann
+ * @author Rene Beiermann
  */
 public class Customer {
 

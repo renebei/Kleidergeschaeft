@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author René Beiermann
+ * @author Rene Beiermann
  */
 
 public class ClothingDAO implements DAO<Clothing> {
@@ -62,7 +62,7 @@ public class ClothingDAO implements DAO<Clothing> {
     public List<Clothing> search(Type type, int cost) {
         List<Clothing> temp = new ArrayList<>();
         for (Clothing c : testdata) {
-            if (c.getType().equals(type) && c.getPrice() <= cost) temp.add(c);
+            if (c.getType().equals(type) && c.getPrice() <= cost && c.getQuantity() > 0) temp.add(c);
         }
         return temp;
     }

@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 /**
  * Suchmoeglichtkeit fuer Kleider im Shopkatalog
  *
- * @author René Beiermann, Maximilian Krebs
+ * @author Rene Beiermann, Maximilian Krebs
  */
 
 public class Search extends Activity {

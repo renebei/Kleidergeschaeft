@@ -12,7 +12,7 @@ import java.util.Random;
 /**
  * Klasse nach Singelton pattern.
  *
- * @author René Beiermann
+ * @author Rene Beiermann
  */
 
 class Testdata {

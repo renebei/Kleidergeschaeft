@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 /**
  * Profil des Nutzer
  *
- * @author René Beiermann
+ * @author Rene Beiermann
  */
 
 public class Profile extends Activity {
