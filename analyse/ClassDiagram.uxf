@@ -1,0 +1,1036 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>5</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>105</y>
+      <w>120</w>
+      <h>115</h>
+    </coordinates>
+    <panel_attributes>Repository
+Package::data
+--
+--
++Repository()
++search(Type, int): List&lt;Clothing&gt;
++addToCart(Clothing): void
++removeFromCart(Clothing): void
++getCart(): List&lt;Clothing&gt;
++calcTotal(): int
++purchase(Clothing[]): void
++addCustomer(Customer): boolean
++getCurrentCostumer(): Costumer
++getHistory(): Map&lt;Clothing, String&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>735</x>
+      <y>105</y>
+      <w>105</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>Testdata
+Package::data
+--
+--
++Testdata()
+_+generate(): Testdata_
++getData(): List&lt;Clothing&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>515</x>
+      <y>105</y>
+      <w>115</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>ShoppingCart
+Package::data
+--
+--
++ShoppingCart()
+_+getInstance(): ShoppingCart_
++addToCart(Clothing): void
++removeFromCart(Clothing): void
++getCart(): List&lt;Clothing&gt;
++calcTotal(): int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>120</x>
+      <y>335</y>
+      <w>100</w>
+      <h>155</h>
+    </coordinates>
+    <panel_attributes>Clothing
+Package::entity
+--
+-color: Color
+-quantity: int
+-cost: int
+-icon: Icon
+--
++Clothing(Size, Type, Color, int)
++getSize(): Size
++setSize(Size): void
++getType(): Type
++setType(Type): void
++getColor(): Color
++setColor(Color): void
++getQuantitiy(): int
++setQuantity(int): void
++getCost(): int
++toString(): String
+-colorInfos(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>315</x>
+      <y>335</y>
+      <w>115</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>ClothingDAO
+Package::entity
+--
+
+--
++ClothingDAO(List&lt;Clothing&gt;)
++sell(Clothing): boolean
++search(Type): List&lt;Clothing&gt;
++search(Type, int): List&lt;Clothing&gt;
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>995</x>
+      <y>335</y>
+      <w>60</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+Type
+Package::entity
+--
+TShirt
+Jeans
+Jacket
+Hoodie
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>465</x>
+      <y>335</y>
+      <w>145</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>Costumer
+Package::entity
+--
+-name: String
+-phoneNr: int
+-adress: String
+-eMail: String
+-loggedIn: boolean
+
+--
++toString(): String
++getName(): String
++setName(String): void
++getPhoneNr(): int
++setPhoneNr(int): void
++getAdress(): String
++setAdress(String): void
++geteMail(): String
++seteMail(String): void
++getLogIn(): boolean
++setLogIn(boolean): void
++getPurchaseHistory: Map&lt;Clothing, String&gt;
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>295</x>
+      <y>570</y>
+      <w>120</w>
+      <h>115</h>
+    </coordinates>
+    <panel_attributes>Checkout
+Package::gui
+--
+-home: JButton
+-cart: JButton
+-purchase: JButton
+-total: JButton
+-panel: JPanel
+-pane: JScrollPane
+--
++Checkout()
++initButtons(): void
++initList(): void
++actionPerformed(ActionEvent): void
++insertCurrentUser(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>625</x>
+      <y>730</y>
+      <w>120</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>Home
+Package::gui
+--
+-panel: JPanel
+-search, cart, profile: JButton
+--
++Home()
++initButtons(): void
++actionPerformed(ActionEvent): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1265</x>
+      <y>575</y>
+      <w>140</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Search
+Package::gui
+--
+-tShirt, jeans, jacket, hoodie, home: JButton
+-panel: JPanel
+-res: JTextField
+--
++Search()
++initButtons(): void
++clearButtons(): void
++actionPerformed(ActionEvent): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>120</x>
+      <y>570</y>
+      <w>130</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>Cart
+Package::gui
+--
+-back: JButton
+-delete: JButton
+-checkout: JButton
+-panel: JPanel
+-pane: JScrollPane
+--
++Cart()
++init(): void
++initList(): void
++initButtons(): void
++actionPerformed(ActionEvent): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>645</x>
+      <y>825</y>
+      <w>100</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>App
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>480</x>
+      <y>620</y>
+      <w>185</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>Form
+Package::gui
+--
+-login, register: JButton
+--
++Form(Checkout)
++initButtons(): void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1085</x>
+      <y>575</y>
+      <w>125</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>Profile
+Package::gui
+--
+-home, delete, checkout: JButton
+-panel: JPanel
+-pane: JScrollPane
+-jList: JList
+-model: DefaultListModel
+--
++Profile()
++init(): void
++initList(): void
++initButtons(): void
++actionPerformed(ActionEvent): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1440</x>
+      <y>575</y>
+      <w>120</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>SearchResults
+Package::gui
+--
+-panel1, panel2: JPanel
+-back, backToMenue: JButton
+--
++SearchResults(List&lt;Clothing&gt;)
++initButtons(List&lt;Clothing&gt;): void
++actionPerformed(ActionEvent): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>170</x>
+      <y>105</y>
+      <w>115</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>CostumerBook
+Package::data
+--
+_-customerBook: CostumerBook_
+--
+-CustomerBook()
+_+getInstance(): CustomerBook_
++getCustomers(): List&lt;Customer&gt;
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>870</x>
+      <y>335</y>
+      <w>85</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+Size
+Package::entity
+--
+XS
+S
+M
+L
+XL
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>690</x>
+      <y>335</y>
+      <w>140</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>CostumerDAO
+Package::entity
+--
+--
++CustomerDAO(List&lt;Customer&gt;)
++addCustomer(Customer): boolean
++removeCustomner(Customer): void
++getCurrent(): Customer
++addToHistory(Clothing[]): void
++getHistory(): Map&lt;Clothing, String&gt;
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>195</x>
+      <y>165</y>
+      <w>365</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=-customers
+m1=*
+</panel_attributes>
+    <additional_attributes>640.0;340.0;640.0;190.0;10.0;190.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>355</x>
+      <y>215</y>
+      <w>55</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=-clothingDAO
+m1=1
+</panel_attributes>
+    <additional_attributes>10.0;240.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>435</x>
+      <y>110</y>
+      <w>90</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=-shoppingCart
+m1=1
+</panel_attributes>
+    <additional_attributes>160.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>215</y>
+      <w>410</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=-clothingDAO
+m1=1
+</panel_attributes>
+    <additional_attributes>720.0;240.0;720.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>165</x>
+      <y>120</y>
+      <w>500</w>
+      <h>225</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=*
+m1=-cart
+</panel_attributes>
+    <additional_attributes>10.0;430.0;10.0;270.0;980.0;270.0;980.0;10.0;930.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>100</x>
+      <y>110</y>
+      <w>80</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=1
+m1=_-customerBook_</panel_attributes>
+    <additional_attributes>140.0;90.0;10.0;90.0;10.0;10.0;140.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>75</y>
+      <w>115</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=1
+m1=_-shoppingCart_</panel_attributes>
+    <additional_attributes>120.0;60.0;120.0;10.0;10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>200</x>
+      <y>165</y>
+      <w>605</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=*
+m1=_-data_</panel_attributes>
+    <additional_attributes>10.0;340.0;10.0;160.0;1190.0;160.0;1190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>755</x>
+      <y>75</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=1
+m1=_-database_</panel_attributes>
+    <additional_attributes>120.0;60.0;120.0;10.0;10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>215</x>
+      <y>405</y>
+      <w>735</w>
+      <h>115</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=1
+m1=-size</panel_attributes>
+    <additional_attributes>1420.0;10.0;1420.0;210.0;50.0;210.0;50.0;120.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>265</x>
+      <y>340</y>
+      <w>60</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=*
+m1=-testdata</panel_attributes>
+    <additional_attributes>100.0;70.0;10.0;70.0;10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>215</x>
+      <y>400</y>
+      <w>835</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=1
+m1=-type</panel_attributes>
+    <additional_attributes>1620.0;10.0;1620.0;240.0;30.0;240.0;30.0;160.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>215</x>
+      <y>350</y>
+      <w>260</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=*
+m1=-purchaseHistory Map&lt;Clothing, String&gt;</panel_attributes>
+    <additional_attributes>10.0;120.0;450.0;120.0;450.0;10.0;500.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>605</x>
+      <y>350</y>
+      <w>95</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=*
+m1=-customers</panel_attributes>
+    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>60</x>
+      <y>430</y>
+      <w>140</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=*
+m1=-jlist, -model</panel_attributes>
+    <additional_attributes>120.0;20.0;10.0;20.0;10.0;210.0;260.0;210.0;260.0;280.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>215</x>
+      <y>425</y>
+      <w>1285</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=*
+m1=results</panel_attributes>
+    <additional_attributes>10.0;20.0;370.0;20.0;370.0;240.0;2550.0;240.0;2550.0;300.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>185</x>
+      <y>530</y>
+      <w>175</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;330.0;10.0;330.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>160</x>
+      <y>680</y>
+      <w>200</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;70.0;380.0;70.0;380.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>345</x>
+      <y>680</y>
+      <w>200</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;70.0;380.0;70.0;380.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>640</y>
+      <w>80</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=1
+m1=-parent</panel_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>530</x>
+      <y>675</y>
+      <w>615</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;80.0;1210.0;80.0;1210.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1050</x>
+      <y>350</y>
+      <w>225</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=1
+m1=-cType</panel_attributes>
+    <additional_attributes>10.0;20.0;370.0;20.0;370.0;500.0;430.0;500.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>815</x>
+      <y>650</y>
+      <w>515</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;130.0;1010.0;130.0;1010.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1000</x>
+      <y>640</y>
+      <w>500</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;150.0;980.0;150.0;980.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>690</x>
+      <y>790</y>
+      <w>15</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>185</x>
+      <y>670</y>
+      <w>450</w>
+      <h>115</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;210.0;880.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>245</x>
+      <y>600</y>
+      <w>60</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.&gt;</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>650</y>
+      <w>570</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.&gt;</panel_attributes>
+    <additional_attributes>1120.0;10.0;1120.0;240.0;10.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1165</x>
+      <y>675</y>
+      <w>15</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>680</x>
+      <y>600</y>
+      <w>155</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>Login
+Package::gui
+--
+-clear, submit, checkout: JButton
+-textFieldName, textFieldPassword: JTextField
+--
++Login(Checkout)
++init(): void
++initTextForm(): void
++initButtons(): void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>600</y>
+      <w>280</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=1
+m1=-parent</panel_attributes>
+    <additional_attributes>10.0;20.0;540.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>745</x>
+      <y>680</y>
+      <w>15</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>880</x>
+      <y>585</y>
+      <w>155</w>
+      <h>95</h>
+    </coordinates>
+    <panel_attributes>Register
+Package::gui
+--
+-clear, submit, checkout: JButton
+-textFieldName, textFieldPassword: JTextField
+-textFieldPhone, textFieldMail: JTextField
+-textAreaAddress: JTextField
+--
++Register(Checkout)
++init(): void
++initTextForm(): void
++initButtons(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>955</x>
+      <y>675</y>
+      <w>15</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>580</y>
+      <w>480</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=1
+m1=-parent</panel_attributes>
+    <additional_attributes>10.0;20.0;940.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1400</x>
+      <y>585</y>
+      <w>50</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.&gt;</panel_attributes>
+    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>640</y>
+      <w>790</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;280.0;1560.0;280.0;1560.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>375</x>
+      <y>680</y>
+      <w>260</w>
+      <h>95</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>500.0;170.0;10.0;170.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>670</y>
+      <w>80</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.&gt;</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>565</x>
+      <y>675</y>
+      <w>550</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;20.0;10.0;60.0;1080.0;60.0;1080.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>580</y>
+      <w>105</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+Activity
+Package::gui
+--
++Activity(String)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>40</x>
+      <y>630</y>
+      <w>135</w>
+      <h>95</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;170.0;250.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>55</x>
+      <y>695</y>
+      <w>50</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>/ActionListener/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>75</x>
+      <y>630</y>
+      <w>15</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>680</x>
+      <y>710</y>
+      <w>15</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>10</x>
+      <y>80</y>
+      <w>380</w>
+      <h>510</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=1
+m1=repo</panel_attributes>
+    <additional_attributes>710.0;50.0;710.0;10.0;10.0;10.0;10.0;1000.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>215</x>
+      <y>190</y>
+      <w>115</w>
+      <h>185</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;350.0;70.0;350.0;70.0;10.0;210.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>675</y>
+      <w>315</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>610.0;10.0;610.0;50.0;10.0;50.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>780</x>
+      <y>680</y>
+      <w>15</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>675</y>
+      <w>255</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;160.0;490.0;160.0;490.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>680</y>
+      <w>90</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;120.0;160.0;120.0;160.0;10.0</additional_attributes>
+  </element>
+</diagram>
